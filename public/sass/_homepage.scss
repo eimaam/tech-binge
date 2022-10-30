@@ -2,29 +2,58 @@
     padding-block: 3rem;
 
     .container--item{
-        @include grid(4, 1fr);
+        @include flex-col;
 
-        @include mobile{
-            grid-template-columns: repeat(1, 1fr);
+        .blog--posts{
+            @include grid(4, 1fr);
+            
+            @include mobile{
+                grid-template-columns: repeat(1, 1fr);
+            }
+            
+            @include tablet{
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        @include tablet{
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .categories{
-            @include flex-row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
+        section{
+            @include grid(3, 1fr);
+            width: 100%;
             align-items: flex-start;
-            gap: 0.3rem;
-            margin-block: 1rem;
+            gap: 3rem;
 
-            h3{
-                background-color: $primary;
-                padding: $xs-pad;
-                border-radius: $m-border-radius;
-                color: $default;
+            @include mobile{
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+            }
+            
+            .news--tags{
+                @include flex-col;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 0.3rem;
+
+                div:last-child{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.3rem;
+                    
+                    h4{
+                        background-color: $primary;
+                        padding: $xs-pad;
+                        border-radius: $m-border-radius;
+                        color: $default;
+                    }
+                }
+            }
+
+            .dev{
+                h3{
+                    display: flex;
+                    gap: 0.3rem;
+                    align-items: center;
+                }
             }
         }
     }

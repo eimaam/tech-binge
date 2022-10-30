@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaBars, FaMoon, FaTimes } from "react-icons/fa"
+import { Link } from 'react-router-dom'
 
 
 import logo from "../../assets/techDesk_logo.png"
@@ -37,10 +38,10 @@ export const NavBar = () => {
             <FaBars id='showNav' onClick={toggleNav}/>
             <FaTimes id='closeNav' onClick={toggleNav}/>
             {/* <img src={logo} alt="" /> */}
-            <FaMoon onClick={toggleMode}/>
+            <FaMoon onClick={toggleMode} id="toggler"/>
         </div>
         <ul id='menu'>
-            <li>Home</li>
+            <li><Link to="/">Home</Link></li>
             <li>Tech News</li>
             <li>Business</li>
             <li>How-Tos</li>

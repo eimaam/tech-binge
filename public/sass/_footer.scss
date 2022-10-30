@@ -1,23 +1,32 @@
 footer{
     background-color: $primary;
+    margin-top: 3rem;
     padding-top: 1rem;
+    padding-bottom: 5rem;
+    color: $default;
     
     .footer--container{
         @include desk-width;
         @include flex-row;
         flex-wrap: wrap;
+        justify-content: space-between;
 
         h2{
             color: $secondary;
         }
 
+        
+        p{
+            font-size: 1rem;
+        }
+
         @include mobile{
             @include m-width;
             text-align: center;
-        }
 
-        p{
-            font-size: 1rem;
+            *{
+                margin: auto;
+            }
         }
     }
 }

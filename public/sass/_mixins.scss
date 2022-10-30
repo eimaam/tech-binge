@@ -17,6 +17,7 @@
 @mixin grid($number, $sizes){
     display: grid;
     grid-template-columns: repeat($number, $sizes);
+    gap: 1rem;
 }
 
 @mixin mobile(){
