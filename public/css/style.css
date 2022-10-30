@@ -1,0 +1,245 @@
+h1 {
+  font-size: 3rem;
+  color: #f7b510;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #116783;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  font-size: 1.01rem;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+button, input[type=submit] {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  background-color: #116783;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  -o-object-fit: cover;
+     object-fit: cover; /*{ Read thissssssssssssssss} */
+}
+
+ul {
+  list-style-type: none;
+}
+ul li {
+  font-size: 1.3rem;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  padding-block: 3rem;
+}
+.container .container--item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 80%;
+  margin: auto;
+}
+@media only screen and (max-width: 600px) {
+  .container .container--item {
+    width: 95%;
+    margin: auto;
+  }
+}
+
+.post--card {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.post--card h2 {
+  color: rgb(24, 23, 23);
+}
+.post--card h3 {
+  color: #f7b510;
+}
+.post--card p {
+  font-size: 1.05rem;
+}
+.post--card img {
+  width: 100%;
+  height: 220px;
+  border-radius: 1rem;
+}
+
+#homepage {
+  padding-block: 3rem;
+}
+#homepage .container--item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media only screen and (max-width: 600px) {
+  #homepage .container--item {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 1300px) {
+  #homepage .container--item {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+#homepage .container--item .categories {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.3rem;
+  margin-block: 1rem;
+}
+#homepage .container--item .categories h3 {
+  background-color: #116783;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: rgb(248, 242, 242);
+}
+
+nav {
+  width: 100%;
+  top: 0;
+  position: fixed;
+  background-color: #116783;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+nav div:first-child {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+nav img {
+  width: 100px;
+}
+nav #closeNav {
+  display: none;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  gap: 0.2rem;
+}
+
+footer {
+  background-color: #116783;
+}
+footer .footer--container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 600px) {
+  footer .footer--container {
+    width: 95%;
+    margin: auto;
+    text-align: center;
+  }
+}
+footer .footer--container p {
+  font-size: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+body {
+  border: none;
+  line-height: 1.4;
+  width: 100%;
+  height: 100%;
+  color: rgb(24, 23, 23);
+  text-align: justify;
+  background-color: rgb(248, 242, 242);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  width: 80%;
+  font-family: inherit;
+  font-size: 1.2rem;
+  padding: 0.8rem 0.5rem;
+  border: 1px solid #116783;
+  border-radius: 0.3rem;
+  color: #f7b510;
+  caret-color: #116783;
+  resize: none;
+}
+input:hover,
+select:hover,
+textarea:hover {
+  border: 1px solid #116783;
+}
+@media only screen and (max-width: 600px) {
+  input,
+select,
+textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=style.css.map */

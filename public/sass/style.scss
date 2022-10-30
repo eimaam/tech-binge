@@ -1,0 +1,75 @@
+@import './variables';
+@import './mixins';
+@import './utilities';
+@import './postCard';
+@import './homepage';
+@import './nav';
+@import './footer';
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+
+body{
+    border: none;
+    line-height: 1.4;
+    width: 100%;
+    height: 100%;
+    color: $dark;
+    text-align: justify;
+    background-color: $default;
+}
+
+.light--mode{
+    $primary: #116783;
+$secondary: #f7b510;
+$extras: #6fdcfe;
+$default: rgb(248, 242, 242);
+$dark: rgb(24, 23, 23);
+}
+
+.dark--mode{
+    $primary: #f7b510;
+    $secondary: #116783;
+    $extras: #6fdcfe;
+    $default: #116783;
+    $dark: rgb(248, 242, 242);
+
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input, 
+select,  
+textarea{
+    width: 80%;
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: 0.8rem 0.5rem;
+    border: 1px solid $primary;
+    border-radius: 0.3rem;
+    color: $secondary;
+    caret-color: $primary;
+    resize: none;
+    
+    &:hover{
+        border: 1px solid $primary;
+    }
+
+    @include mobile(){
+        width: 100%;
+        font-size: 16px;
+    }
+
+}

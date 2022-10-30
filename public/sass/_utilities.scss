@@ -1,0 +1,74 @@
+// @import './variables';
+// @import './mixins';
+
+// Defaults
+
+// Header sizes
+// font sizes
+h1{
+    font-size: 3rem;
+    color: $secondary;
+}
+
+h2{
+    font-size: 2rem;
+    color: $primary;
+}
+
+h3{
+    font-size: 1.3rem;
+}
+
+h3{
+    font-size: 1.01rem;
+}
+
+p{
+    font-size: 1.3rem;
+}
+
+// Button & submit input
+button, input[type="submit"]{
+    padding: $s-pad $m-pad; 
+    font-size: 1rem;
+    text-transform: capitalize;
+    background-color: $primary;
+    border-radius: $m-border-radius;
+    cursor: pointer;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+    margin: auto;  
+    object-fit: cover; /*{ Read thissssssssssssssss} */ 
+}
+
+ul{
+    list-style-type: none;
+
+    li{
+        font-size: 1.3rem;
+    }
+}
+
+// container default
+.container{
+    width: 100%;
+    min-height: 100vh;
+    @include flex-row;
+    padding-block: 3rem;
+    
+    .container--item{
+        @include flex-col;
+        margin: auto;
+        @include desk-width;
+
+        @include mobile{
+            @include m-width;
+        }
+    }
+    
+
+
+}

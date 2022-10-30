@@ -1,0 +1,39 @@
+nav{
+    width: 100%;
+    top: 0;
+    position: fixed;
+    background-color: $primary;
+    @include flex-col;
+    padding: $xs-pad $s-pad;
+    font-size: 1.2rem;
+    z-index: 10;
+
+    div:first-child{
+        width: 100%;
+        @include flex-row;
+        justify-content: space-between;
+    }
+
+    // logoooooooo styling
+    // div:first-child{
+    //     border: solid green;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     gap: 0.2rem;
+    // }
+
+    img{
+        width: 100px;
+    }
+
+    #closeNav{
+        display: none;
+    }
+
+    ul{
+        @include flex-col;
+        display: none;
+        gap: 0.2rem;
+    }
+}

@@ -1,0 +1,18 @@
+footer{
+    background-color: $primary;
+    
+    .footer--container{
+        @include desk-width;
+        @include flex-row;
+        flex-wrap: wrap;
+
+        @include mobile{
+            @include m-width;
+            text-align: center;
+        }
+
+        p{
+            font-size: 1rem;
+        }
+    }
+}
