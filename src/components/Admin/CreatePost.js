@@ -1,5 +1,6 @@
 import React, { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
+import { useEffect } from 'react';
 
 export const CreatePost = ({ placeholder }) => {
 	const editor = useRef(null);
@@ -11,19 +12,15 @@ export const CreatePost = ({ placeholder }) => {
 		tag: ""
 	})
 
-	// const config = useMemo(
-	// 	{
-	// 		readonly: false, // all options from https://xdsoft.net/jodit/doc/,
-	// 		placeholder: placeholder || 'Start typings...'
-	// 	},
-	// 	[placeholder]
-	// );
+	const [image, setImage] = useState("")
+	const [imageURL, setImageURL] = useState("")
 
-	// config for Jodit Editor
+	//Jodit Editor Config
 	const config = {
 					readonly: false, // all options from https://xdsoft.net/jodit/doc/,
 					placeholder: placeholder || 'Blog content goes here...',
 					minHeight: 400,
+					
 				}
 
 	// handle form data change
@@ -36,11 +33,20 @@ export const CreatePost = ({ placeholder }) => {
 		}))
 	}
 
+	// function to handle image upload 
+	const handleImage = (e) => {
+		let upload = e.target.files
+		setImage(upload[0])
+	}
+
+	// handle POST DETAILS: Data from states
 	const postDetail = {
 		title: data.title,
 		category: data.category,
-		content: content
+		content: content,
+		image: image.name
 	}
+
 
 	const addPost = (e) => {
 		e.preventDefault()
@@ -63,8 +69,10 @@ export const CreatePost = ({ placeholder }) => {
 					<div>
 						<label htmlFor="image">Add Image: </label>
 						<input 
-						type="file" 
-						onChange={handleChange}				
+						type="file"
+						name='image'
+						accept='.png, .jpeg, .jpg, .svg'
+						onChange={(e) => handleImage(e)}				
 						/>
 					</div>
 					<div>
@@ -90,6 +98,9 @@ export const CreatePost = ({ placeholder }) => {
 					/>
 				</div>
 				<button>CREATE POST</button>
+				<div className='blog--image'>
+					{image ? <img src={`${image}`} alt={image.name} /> : <i>Blog Post image appears here...</i>}
+				</div>
 			</div>
 		</div>
 	);

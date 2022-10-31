@@ -2,7 +2,6 @@
     @extend .container;
     float: right;
     width: 80%;
-    border: solid red;
     min-height: 100vh;
 
     @include mobile{
