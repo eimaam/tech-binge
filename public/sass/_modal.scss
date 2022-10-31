@@ -1,0 +1,27 @@
+.modal{
+    position: absolute;
+    width: 40%;
+    @include flex-col;
+    background-color: $extras;
+    padding-block: 3rem;
+    border-radius: $m-border-radius;
+
+    form{
+        width: 60%;
+        padding-block: 2.5rem;
+    }
+
+    button, input[type=submit]{
+        &:hover{
+            background-color: $secondary;
+        }
+    }
+
+    @include mobile{
+        width: 100%;
+
+        form{
+            width: 100%;
+        }
+    }
+}

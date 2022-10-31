@@ -38,7 +38,7 @@ export const NavBar = () => {
             <FaBars id='showNav' onClick={toggleNav}/>
             <FaTimes id='closeNav' onClick={toggleNav}/>
             {/* <img src={logo} alt="" /> */}
-            <FaMoon onClick={toggleMode} id="toggler"/>
+            <FaMoon onClick={toggleMode} id="mode"/>
         </div>
         <ul id='menu'>
             <li><Link to="/">Home</Link></li>

@@ -1,3 +1,8 @@
+.flex {
+  display: flex;
+  gap: 0.2rem;
+}
+
 h1 {
   font-size: 3rem;
   color: #f7b510;
@@ -9,7 +14,7 @@ h2 {
 }
 @media only screen and (max-width: 600px) {
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -24,6 +29,11 @@ h4 {
 p {
   font-size: 1.3rem;
 }
+@media only screen and (max-width: 600px) {
+  p {
+    font-size: 1.1rem;
+  }
+}
 
 button, .btn--secondary, input[type=submit] {
   padding: 1rem 1.5rem;
@@ -34,9 +44,17 @@ button, .btn--secondary, input[type=submit] {
   border-radius: 0.5rem;
   cursor: pointer;
 }
+button:hover, .btn--secondary:hover, input[type=submit]:hover {
+  background-color: #6fdcfe;
+}
 
 .btn--secondary {
   background-color: #f7b510;
+}
+
+.btn--small {
+  font-size: 0.8rem;
+  padding: 0.3rem;
 }
 
 img {
@@ -52,6 +70,11 @@ ul {
 }
 ul li {
   font-size: 1.3rem;
+}
+@media only screen and (max-width: 600px) {
+  ul li {
+    font-size: 1.1rem;
+  }
 }
 
 .container, .dashboard--container, .create--post {
@@ -203,6 +226,7 @@ nav {
     justify-content: center;
     align-items: center;
     padding-inline: 1rem;
+    transition: transform 1s ease-out;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -235,6 +259,9 @@ nav ul {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
+  transition: all 1s ease-in-out;
+  transition-duration: 500;
+  transition-delay: 300;
 }
 nav ul li a:active {
   color: #f7b510;
@@ -246,8 +273,8 @@ nav ul li a:active {
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
-    display: none;
     gap: 0.2rem;
+    display: none;
   }
 }
 
@@ -373,6 +400,34 @@ footer .footer--container p {
   color: #f7b510;
 }
 
+.modal {
+  position: absolute;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #6fdcfe;
+  padding-block: 3rem;
+  border-radius: 0.5rem;
+}
+.modal form {
+  width: 60%;
+  padding-block: 2.5rem;
+}
+.modal button:hover, .modal .btn--secondary:hover, .modal input[type=submit]:hover {
+  background-color: #f7b510;
+}
+@media only screen and (max-width: 600px) {
+  .modal {
+    width: 100%;
+  }
+  .modal form {
+    width: 100%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -395,6 +450,25 @@ a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+}
+
+form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 0.5rem;
+}
+@media only screen and (max-width: 600px) {
+  form {
+    width: 90%;
+  }
 }
 
 input,

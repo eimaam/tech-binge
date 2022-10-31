@@ -5,6 +5,11 @@
 
 // Header sizes
 // font sizes
+.flex{
+    @include flex;
+    gap: 0.3rem;
+}
+
 h1{
     font-size: 3rem;
     color: $secondary;
@@ -15,7 +20,7 @@ h2{
     color: $primary;
 
     @include mobile{
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 }
 
@@ -29,6 +34,10 @@ h4{
 
 p{
     font-size: 1.3rem;
+
+    @include mobile{
+        font-size: 1.1rem;
+    }
 }
 
 // Button & submit input
@@ -40,11 +49,20 @@ button, input[type="submit"]{
     background-color: $primary;
     border-radius: $m-border-radius;
     cursor: pointer;
+
+    &:hover{
+        background-color: $extras;
+    }
 }
 
 .btn--secondary{
     @extend button;
     background-color: $secondary;
+}
+
+.btn--small{
+    font-size: 0.8rem;
+    padding: 0.3rem;
 }
 
 img{
@@ -59,6 +77,10 @@ ul{
 
     li{
         font-size: 1.3rem;
+
+        @include mobile{
+            font-size: 1.1rem;
+        }
     }
 }
 

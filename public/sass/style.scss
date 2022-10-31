@@ -9,6 +9,7 @@
 @import './createPost';
 @import "./dashboard";
 @import './statCard';
+@import './modal';
 
 
 
@@ -54,6 +55,20 @@ a{
     cursor: pointer;
 }
 
+form{
+    width: 30%;
+    @include flex-col;
+    gap: 1rem;
+    padding: $l-pad $s-pad;
+    box-shadow: 0 5px 5px 0 rgba(0 0 0 / 0.2);
+    text-align: center;
+    border-radius: $m-border-radius;
+
+    @include mobile{
+        width: 90%;
+    }
+}
+
 input, 
 select,  
 textarea{
@@ -75,5 +90,4 @@ textarea{
         width: 100%;
         font-size: 16px;
     }
-
 }

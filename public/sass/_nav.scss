@@ -11,10 +11,13 @@ nav{
     z-index: 10;
     color: $default;
     padding-inline: 2rem;
+    // transition: clip-path 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    // background-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
     
     @include mobile{
         @include flex-col;
         padding-inline: 1rem;
+        transition: transform 1s ease-out;
 
     }
 
@@ -44,6 +47,7 @@ nav{
         display: none;
     }
 
+
     #showNav{
         @include mobile{
             display: block;
@@ -54,9 +58,13 @@ nav{
         width: 80%;
         @include flex-row;
         justify-content: space-between;
+        transition: all 1s ease-in-out;
+        transition-duration: 500;
+        transition-delay: 300;
 
         li{
             a{
+
                 &:active{
                     color: $secondary;
                 }
@@ -65,8 +73,8 @@ nav{
 
         @include mobile{
             @include flex-col;
-            display: none;
             gap: 0.2rem;
+            display: none;
         }
     }
 }
