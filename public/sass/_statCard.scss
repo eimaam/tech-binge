@@ -1,0 +1,10 @@
+.stat--card{
+    background-color: $primary;
+    padding: 1rem;
+    width: 300px;
+    @include flex-col;
+
+    h2{
+        color: $secondary;
+    }
+}

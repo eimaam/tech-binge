@@ -3,7 +3,7 @@ import { FaBars, FaMoon, FaTimes } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 
 
-import logo from "../../assets/techDesk_logo.png"
+import logo from "../assets/techDesk_logo.png"
 
 export const NavBar = () => {
 

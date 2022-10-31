@@ -1,0 +1,28 @@
+.create--post{
+    @extend .dashboard--container;
+    flex-direction: column;
+
+    form{
+        width: 100%;
+
+        div{
+            @include flex-col;
+            width: 100%;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-block: 1rem;
+
+            input{
+                width: 100%;
+            }
+
+            label{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .jodit--editor{
+        width: 100%;
+    }
+}

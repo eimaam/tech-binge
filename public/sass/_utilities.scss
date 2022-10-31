@@ -35,10 +35,16 @@ p{
 button, input[type="submit"]{
     padding: $s-pad $m-pad; 
     font-size: 1rem;
+    color: $default;
     text-transform: capitalize;
     background-color: $primary;
     border-radius: $m-border-radius;
     cursor: pointer;
+}
+
+.btn--secondary{
+    @extend button;
+    background-color: $secondary;
 }
 
 img{
@@ -62,6 +68,10 @@ ul{
     min-height: 100vh;
     @include flex-row;
     padding-block: 3rem;
+
+    @include mobile{
+        padding-block: 1.5rem;
+    }
     
     .container--item{
         @include flex-col;

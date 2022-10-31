@@ -1,0 +1,22 @@
+.admin--nav{
+    @include flex-col;
+    background-color: $primary;
+    width: 20%;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+
+    h2{
+        color: $default;
+    }
+
+
+    ul{
+        @include flex-col;
+
+        li{
+            color: $secondary;
+            text-transform: uppercase;
+        }
+    }
+}
