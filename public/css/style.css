@@ -257,6 +257,7 @@ footer {
   padding-top: 1rem;
   padding-bottom: 5rem;
   color: rgb(248, 242, 242);
+  border: solid red;
 }
 footer .footer--container {
   width: 80%;
@@ -335,6 +336,7 @@ footer .footer--container p {
 }
 .create--post form div label {
   font-size: 1.5rem;
+  color: #116783;
 }
 .create--post .jodit--editor {
   width: 100%;
@@ -386,6 +388,7 @@ body {
   color: rgb(24, 23, 23);
   text-align: justify;
   background-color: rgb(248, 242, 242);
+  font-family: "Space Grotesk", sans-serif;
 }
 
 a {
