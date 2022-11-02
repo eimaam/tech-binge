@@ -8,6 +8,7 @@ import { Login } from "./components/Admin/Login";
 import { useState } from "react";
 import { useEffect } from "react";
 import { ClimbingBoxLoader } from "react-spinners";
+import { BlogPostPage } from "./components/Homepage/BlogPostPage";
 
 
 function App() {
@@ -22,19 +23,20 @@ function App() {
 
   return (
     <Router>
-    {loading 
+    {/* {loading 
       ? 
       <div className="container">
         <ClimbingBoxLoader color="#116783" />
       </div>
-      :
+      : */}
       <Routes>
         <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/post" element={<BlogPostPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/create" element={<CreatePost />} />
         <Route path="/admin" element={<Login />} />
       </Routes>
-    }
+    {/* } */}
       </Router>
   );
 }
