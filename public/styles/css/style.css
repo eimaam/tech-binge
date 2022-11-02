@@ -589,6 +589,18 @@ section .section--contents .blog--card h2 {
   justify-content: flex-start;
   width: 60%;
 }
+@media only screen and (max-width: 1250px) {
+  #blogPost .container--item {
+    width: 95%;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 1250px) and (max-width: 1400px) {
+  #blogPost .container--item {
+    width: 90%;
+    margin: auto;
+  }
+}
 #blogPost .container--item img {
   width: 60%;
 }
@@ -620,16 +632,15 @@ section .section--contents .blog--card h2 {
 }
 @media only screen and (max-width: 1250px) {
   #blogPost .container--item .title {
-    width: 90%;
+    width: 100%;
   }
-}
-@media only screen and (min-width: 1250px) and (max-width: 1400px) {
-  #blogPost .container--item .title {
-    width: 90%;
+  #blogPost .container--item .title h2 {
+    font-size: 1.5rem;
   }
 }
 #blogPost .container--item > p {
   line-height: 1.5;
+  padding: 1.5rem;
 }
 #blogPost .container--item > p::first-letter {
   color: #f7b510;
@@ -637,6 +648,11 @@ section .section--contents .blog--card h2 {
   margin: 1rem 0.1rem 0.5rem 2rem;
   float: left;
   line-height: 0.65;
+}
+@media only screen and (max-width: 1250px) {
+  #blogPost .container--item > p {
+    padding: 0.5rem;
+  }
 }
 #blogPost .container--item .flex {
   align-items: center;
@@ -653,12 +669,16 @@ section .section--contents .blog--card h2 {
   font-size: 2rem;
 }
 #blogPost .container--item .more .posts {
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
   overflow: scroll;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.3rem;
 }
 #blogPost .container--item .more .posts .blog--card {
   width: 200px;

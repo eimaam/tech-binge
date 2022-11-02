@@ -32,7 +32,7 @@ export const BlogPostPage = () => {
             <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
           </div>
         <div className='more'>
-          <h3>More Stories from Category</h3>
+          <h3>More Stories from $Category:</h3>
           <div className='posts'>
             <BlogCard />
             <BlogCard />
