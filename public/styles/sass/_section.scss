@@ -1,0 +1,27 @@
+section{
+    background-color: white;
+    width: $w-screen;
+    padding-block: $l-pad;
+
+    .title{
+        padding-inline: $s-pad;
+    }
+
+
+    .section--contents{
+        @include grid(10, 1fr);
+        overflow: scroll;
+        ::-webkit-scrollbar{
+            display: none;
+        }
+
+        .blog--card{
+            width: 250px;
+
+            h2{
+                font-size: 1.1rem;
+            }
+        }
+
+    }
+}

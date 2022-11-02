@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export const AdminNav = () => {
   return (
     <div className='admin--nav'>
-        <h2>Dashboard</h2>
+        <h2>Admin Dashboard</h2>
         <ul>
             <li><Link to="">Check Site Stats</Link></li>
             <li><Link to="/create">Create Post</Link></li>

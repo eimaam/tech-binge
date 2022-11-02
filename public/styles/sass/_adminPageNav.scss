@@ -5,6 +5,7 @@
     min-height: 100vh;
     position: fixed;
     left: 0;
+    z-index: 99999999;
 
     h2{
         color: $default;
@@ -17,6 +18,21 @@
         li{
             color: $secondary;
             text-transform: uppercase;
+        }
+    }
+
+
+    // side nav mobile
+    @include mobile{
+        width: 100%;
+        height: 100vh;
+        
+        *{
+            text-transform: capitalize;
+        }
+
+        ul, h2, button{
+            display: none;
         }
     }
 }

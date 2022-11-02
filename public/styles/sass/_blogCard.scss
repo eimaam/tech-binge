@@ -1,13 +1,19 @@
-.post--card{
+.blog--card{
     width: 100%;
     padding: $s-pad;
     @include flex-col;
 
+    @include mobile{
+        padding: $xs-pad;
+    }
+
     h2{
         color: $dark;
+        line-height: 1.2;
     }
 
     h3{
+        font-size: 1rem;
         color: $secondary;
     }
 
@@ -17,7 +23,7 @@
 
     img{
         width: 100%;
-        height: 220px;
-        border-radius: $l-border-radius;
+        height: 150px;
+        border-radius: $m-border-radius;
     }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 import { useEffect } from 'react';
+import { AdminNav } from './AdminNav';
 
 export const CreatePost = ({ placeholder }) => {
 	const editor = useRef(null);
@@ -20,7 +21,6 @@ export const CreatePost = ({ placeholder }) => {
 					readonly: false, // all options from https://xdsoft.net/jodit/doc/,
 					placeholder: placeholder || 'Blog content goes here...',
 					minHeight: 400,
-					
 				}
 
 	// handle form data change
@@ -53,6 +53,8 @@ export const CreatePost = ({ placeholder }) => {
 	}
 
 	return (
+		<>
+        <AdminNav />
 		<div className='create--post'>
 			<div className='container--item'>
 				<form >
@@ -103,5 +105,6 @@ export const CreatePost = ({ placeholder }) => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };

@@ -1,0 +1,79 @@
+.category--card{
+    @include flex-col;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 70%;
+    gap: 0;
+    border-right: 1px solid $extras;
+
+    @include mobile{
+        @include m-width;
+        border: none;
+    }
+
+    .title{
+        padding-inline: $m-pad;
+
+        @include mobile{
+            padding-inline: 0;
+        }
+    }
+
+    main{
+        width: 100%;
+
+        .blog--card{
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            
+            img{
+                height: 300px;
+            }
+
+            // mobile
+            @include mobile{
+                @include flex-col;
+
+                img{
+                    height: 200px;
+                }
+            }
+        }
+
+    }
+
+    .posts{
+        @include flex-row;
+        justify-content: flex-start;
+
+        // mobile{
+        @include mobile{
+            flex-direction: column;
+
+            .blog--card{
+                flex-direction: row;
+                gap: 0.8rem;
+
+                h2{
+                    font-size: 1.05rem;
+                }
+
+                img{
+                    width: 40%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    button{
+        @include flex-row;
+
+        @include mobile{
+            padding: 0.3rem;
+        }
+    }
+
+
+    
+}

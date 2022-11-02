@@ -1,0 +1,55 @@
+.head--posts{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2rem;
+
+    .main{
+        .blog--card{
+            img{
+                height: 300px;
+            }
+        }
+    }
+
+    aside{
+        @include flex-col;
+        border-left: 1px solid $extras;
+        gap: 0;
+
+        .blog--card{
+            @extend .blog--card;
+            flex-direction: row;
+            
+            @include mobile{
+                flex-direction: column;
+            }
+        }
+
+    }
+
+    @include mobile{
+        @include flex-col;
+        grid-template-columns: 1fr 1fr;
+        margin-block: 0.5rem;
+
+        img{
+            width: 100%;
+        }
+
+        .main{
+            .blog--card{
+                img{
+                    height: 200px;
+                }
+            }
+        }
+
+        aside{
+            border: none;
+        }
+    }
+    
+}

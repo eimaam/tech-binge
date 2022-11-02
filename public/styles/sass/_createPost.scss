@@ -2,8 +2,16 @@
     @extend .dashboard--container;
     flex-direction: column;
 
+    label{
+        font-size: 1.5rem;
+        color: $primary;
+    }
+
     form{
         width: 100%;
+        box-shadow: none;
+        gap: 0;
+        padding-block: 0;
 
         div{
             @include flex-col;
@@ -16,15 +24,12 @@
                 width: 100%;
             }
 
-            label{
-                font-size: 1.5rem;
-                color: $primary;
-            }
         }
     }
 
     .jodit--editor{
         width: 100%;
+        padding: 1rem;
     }
 
     .blog--image{

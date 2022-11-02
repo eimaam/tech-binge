@@ -30,7 +30,7 @@ export const Login = () => {
                 name="" 
                 />
                 <div>
-                    <p className='flex'>Forgot Password? <button className='btn--small' onClick={() => setShowModal(!showModal)}>RESET</button> </p>
+                    <p className='flex'>Forgot Password? <button type='button' className='btn--small' onClick={() => setShowModal(!showModal)}>RESET</button> </p>
                 </div>
             </form>
             {showModal && <ResetPass onClick={() => setShowModal(false)}/>}

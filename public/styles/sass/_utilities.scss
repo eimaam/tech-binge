@@ -6,7 +6,7 @@
 // Header sizes
 // font sizes
 .flex{
-    @include flex;
+    @include flex-row;
     gap: 0.3rem;
 }
 
@@ -16,7 +16,7 @@ h1{
 }
 
 h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: $primary;
 
     @include mobile{
@@ -53,6 +53,11 @@ button, input[type="submit"]{
     &:hover{
         background-color: $extras;
     }
+
+    @include mobile{
+        padding: $s-pad;
+        font-size: 0.8rem;
+    }
 }
 
 .btn--secondary{
@@ -84,12 +89,24 @@ ul{
     }
 }
 
+hr{
+    margin: 2rem auto;
+    color: $extras;
+    border: 1px solid $extras;
+    width: 80%;
+
+    @include mobile{
+        margin-block: 1rem;
+    }
+}
+
 // container default
 .container{
     width: 100%;
     min-height: 100vh;
     @include flex-row;
     padding-block: 3rem;
+    border: solid green;
 
     @include mobile{
         padding-block: 1.5rem;
@@ -103,5 +120,11 @@ ul{
         @include mobile{
             @include m-width;
         }
+
+        @include tablet{
+            @include tablet-width;
+            border: solid cyan;
+        }
     }
+
 }

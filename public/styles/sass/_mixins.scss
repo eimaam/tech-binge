@@ -21,13 +21,13 @@
 }
 
 @mixin mobile(){
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1250px) {
         @content;
     }
 }
 
 @mixin tablet(){
-    @media only screen and (min-width: 601px) and (max-width: 1300px){
+    @media only screen and (min-width: 1250px) and (max-width: 1400px){
         @content;
     }
 }
@@ -40,8 +40,13 @@
 }
 
 // width for all first divs of containers - Desktop 
-@mixin desk-width($width: 80%){
+@mixin desk-width($width: 70%){
     width: $width;
+    margin: auto;
+}
+
+@mixin tablet-width(){
+    width: 90%;
     margin: auto;
 }
 

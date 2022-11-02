@@ -18,7 +18,8 @@
     }
 
     @include mobile{
-        width: 100%;
+        width: 95%;
+        padding-block: 2rem;
 
         form{
             width: 100%;
