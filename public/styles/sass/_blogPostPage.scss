@@ -27,6 +27,14 @@
                 font-size: 3rem;
             }
 
+            .share--buttons{
+                @include flex-row;
+
+                h3{
+                    font-size: 2rem;
+                }
+            }
+
             @include mobile{
                 width: 90%;
             }
@@ -46,6 +54,19 @@
                 line-height: 0.65;
             }
         }
+
+        // bottom share button{
+            .flex{
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                
+                h3{
+                    @include flex-row;
+                    color: $primary;
+                    font-size: 2rem;
+                }
+            }
 
         .more{
             .posts{

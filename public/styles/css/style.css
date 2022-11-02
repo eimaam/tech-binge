@@ -608,6 +608,16 @@ section .section--contents .blog--card h2 {
 #blogPost .container--item .title h2 {
   font-size: 3rem;
 }
+#blogPost .container--item .title .share--buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+#blogPost .container--item .title .share--buttons h3 {
+  font-size: 2rem;
+}
 @media only screen and (max-width: 1250px) {
   #blogPost .container--item .title {
     width: 90%;
@@ -627,6 +637,20 @@ section .section--contents .blog--card h2 {
   margin: 1rem 0.1rem 0.5rem 2rem;
   float: left;
   line-height: 0.65;
+}
+#blogPost .container--item .flex {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+#blogPost .container--item .flex h3 {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: #116783;
+  font-size: 2rem;
 }
 #blogPost .container--item .more .posts {
   display: flex;
