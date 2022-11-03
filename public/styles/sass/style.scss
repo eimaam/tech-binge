@@ -59,7 +59,7 @@ a{
 }
 
 form{
-    width: 30%;
+    width: 40%;
     @include flex-col;
     gap: 1rem;
     padding: $l-pad $s-pad;
@@ -75,7 +75,7 @@ form{
 input, 
 select,  
 textarea{
-    width: 80%;
+    width: 90%;
     font-family: inherit;
     font-size: 1.2rem;
     padding: 0.8rem 0.5rem;

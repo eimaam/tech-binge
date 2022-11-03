@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom'
 
 
 import logo from "../assets/techDesk_logo.png"
+import { useAuth } from '../context/AuthContext'
 
 export const NavBar = () => {
+
+    const { logOut } = useAuth()
 
     const toggleNav = () => {
         const showNav = document.getElementById('showNav')
@@ -39,6 +42,7 @@ export const NavBar = () => {
             <FaTimes id='closeNav' onClick={toggleNav}/>
             {/* <img src={logo} alt="" /> */}
             <FaMoon onClick={toggleMode} id="mode"/>
+            <button className='btn--small' onClick={logOut}>Sign out</button>
         </div>
         <ul id='menu'>
             <li><Link to="/">Home</Link></li>
