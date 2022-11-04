@@ -3,6 +3,12 @@
     padding: 1rem;
     width: 300px;
     @include flex-col;
+    transition: all .3s;
+
+    &:hover{
+        transform: scale(1.05);
+        border-radius: $m-border-radius;
+    }
 
     h2{
         color: $secondary;

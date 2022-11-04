@@ -11,6 +11,7 @@ import { auth, database, storage } from '../../firebaseConfig';
 import { async } from '@firebase/util';
 import { addDoc, collection, doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { useAuth } from '../../context/AuthContext';
+import { PuffLoader, BarLoader } from 'react-spinners';
 
 export const CreatePost = ({ placeholder }) => {
 	const {loading, setLoading} = useAuth()
@@ -57,12 +58,12 @@ export const CreatePost = ({ placeholder }) => {
 	}
 
 	// handle POST DETAILS: Data from states
-	const postDetail = {
-		title: data.title,
-		category: data.category,
-		content: content,
-		image: image.name
-	}
+	// const postDetail = {
+	// 	title: data.title,
+	// 	category: data.category,
+	// 	content: content,
+	// 	image: image.name
+	// }
 
 	// DATE: creating date format Day/Month
     // get timestamp from Firebase
@@ -86,8 +87,9 @@ export const CreatePost = ({ placeholder }) => {
 
 	// function to upload Image to Firestore
 	const uploadImage = async (e) => {
+		e.preventDefault()
 		if(!image){
-			setImage(dummy)
+			toast.error('No Image Added! Dummy Image Used by Default!')
 		}
 		const uploadTask = uploadBytesResumable(storageRef, image)
 		uploadTask.on("state_changed", (snapshot) => {
@@ -96,21 +98,22 @@ export const CreatePost = ({ placeholder }) => {
 			);
 			setUploadProgress(percentage)
 		},
-		(err) => toast.error(err),
+		(error) => console.log(error),
 
 		async () => {
 			await getDownloadURL(uploadTask.snapshot.ref)
-			.then(url => {
-				return setImageURL(url)
+			.then((url) => {
+				return setImageURL(url);
 			});
 		}
-		);
+	);
 	}
+
+	console.log(imageURL)
 
 	// CREATE Post function
 	const addPost = async (e) => {
 		e.preventDefault()
-		uploadImage()
 		setLoading(true)
 		const post = await getDoc(doc(postRef))
 		try{
@@ -120,29 +123,21 @@ export const CreatePost = ({ placeholder }) => {
 					title: data.title,
 					category: data.category,
 					content: content,
-					author: auth.currentUser.email,
+					author: "Imam Dahir Dan-Azumi",
 					publishDate: date,
 				})
-				// await addDoc(postRef, {
-				// 	imageURL: imageURL,
-				// 	title: data.title,
-				// 	category: data.category,
-				// 	content: content,
-				// 	author: auth.currentUser.email,
-				// 	publishDate: date,
-				// })
 				toast.success('New Blog Added')
 				setLoading(false)
 			}
 			setLoading(false)
-			return uploadImage();
 		}
 		catch(error){
 			console.log(error)
 		}
+		setLoading(false)
 	}
+// end of func
 
-console.log(imageURL)
 	return (
 		<>
         <AdminNav />
@@ -169,7 +164,7 @@ console.log(imageURL)
 						/>
 					</div>
 					<div>
-						<label htmlFor="image">Category:</label>
+						<label htmlFor="category">Category:</label>
 						<input 
 						type="text"
 						name='category'
@@ -190,12 +185,17 @@ console.log(imageURL)
 						onChange={newContent => {}}
 					/>
 				</div>
-				<button onClick={addPost}>CREATE POST</button>
+				{uploadProgress > 0 && uploadProgress < 100 && <p><BarLoader />Checking Post Contents.... {uploadProgress}%</p>}
+				{uploadProgress == 100 && <p>Check done! Click on Create Post! {uploadProgress}%</p>}
+				{uploadProgress !== 100 && <button onClick={uploadImage}>Check Post</button>}
+				{/* loading animation showing posting... */}
+				{loading && <PuffLoader />}
+				{uploadProgress == 100 && <button onClick={addPost}>CREATE POST</button>}
 				<div className='blog--image'>
-					{image ? <img src={`${image}`} alt={image.name} /> : <i>Blog Post image appears here...</i>}
+					{image ? <img src={`${imageURL}`} alt={image.name} /> : <i>Blog Post image appears here...</i>}
 				</div>
 			</div>
 		</div>
-		</>
+	</>
 	);
 };

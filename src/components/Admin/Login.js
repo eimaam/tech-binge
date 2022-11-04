@@ -11,7 +11,7 @@ import { ResetPass } from './ResetPass'
 export const Login = () => {
     useEffect(() => {
         onAuthStateChanged(auth, data => {
-            data && navigate('/post')
+            data && navigate('/dashboard')
         })
     }, [])
     const {loading, setLoading, error, setError, navigate} = useAuth();

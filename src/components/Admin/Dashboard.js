@@ -13,14 +13,16 @@ export const Dashboard = () => {
       title: "Daily Page Views",
     },
   ]
-  const cards = data.map((item, index) => {
+  const statCards = data.map((item, index) => {
     return <StatCard key={index} value={item.value} title={item.title}/>
   })
   return (
     <div>
         <AdminNav />
         <div className='dashboard--container'>
-          {cards}
+          <div className='container--item'>
+            {statCards}
+          </div>
         </div>
     </div>
   )

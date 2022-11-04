@@ -32,10 +32,16 @@
         padding: 1rem;
     }
 
+    // blog post image preview
     .blog--image{
+        border: 1px solid $secondary;
         width: 100%;
         height: 300px;
-        border: 1px solid $secondary;
         border-radius: $m-border-radius;
+        
+        img{
+            width: 100%;
+            height: 300px;
+        }
     }
 }

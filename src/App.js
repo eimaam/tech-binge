@@ -15,6 +15,7 @@ import { Signup } from "./components/Signup";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AddUsername } from "./components/Admin/AddUsername";
+import { PrivateRoutes } from "./Route/PrivateRoutes";
 
 
 function App() {
@@ -36,15 +37,18 @@ function App() {
       </div>
     : */}
     <AuthProvider>
-    <NavBar />
+    {/* <NavBar /> */}
       <Routes>
-        <Route exact path="/" element={<Homepage />} />
-        <Route path="/post" element={<BlogPostPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/create" element={<CreatePost />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/post/:title" element={<BlogPostPage />} />
         <Route path="/admin" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/addUsername" element={<AddUsername />} />
+        {/* Private Routes */}
+        <Route element={<PrivateRoutes />}>
+          <Route exact path="dashboard" element={<Dashboard />} />
+          <Route path="/create" element={<CreatePost />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/addUsername" element={<AddUsername />} />
+        </Route>
       </Routes>
     </AuthProvider>
     <ToastContainer

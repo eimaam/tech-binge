@@ -4,6 +4,10 @@
     width: 80%;
     min-height: 100vh;
 
+    .container--item{
+        flex-direction: row;
+    }
+
     @include mobile{
         width: 100%;
     }

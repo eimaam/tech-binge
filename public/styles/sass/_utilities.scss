@@ -107,7 +107,6 @@ hr{
     min-height: 100vh;
     @include flex-row;
     padding-block: 3rem;
-    border: solid green;
 
     @include mobile{
         padding-block: 1.5rem;
@@ -117,7 +116,8 @@ hr{
         @include flex-col;
         margin: auto;
         @include desk-width;
-
+        flex-wrap: wrap;
+        
         @include mobile{
             @include m-width;
         }
