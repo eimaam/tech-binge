@@ -4,7 +4,6 @@ footer{
     padding-top: 1rem;
     padding-bottom: 5rem;
     color: $default;
-    border: solid red;
     
     .footer--container{
         @include desk-width;
@@ -13,7 +12,7 @@ footer{
         justify-content: space-between;
 
         h2{
-            color: $secondary;
+            color: $default;
         }
 
         

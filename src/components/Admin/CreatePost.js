@@ -3,20 +3,11 @@ import JoditEditor from 'jodit-react';
 import { useEffect } from 'react';
 import { AdminNav } from './AdminNav';
 import { toast } from 'react-toastify';
-import {Editor, EditorState} from 'draft-js';
-// import 'draft-js/dist/Draft.css';
-import '../DraftJs/RichEditor.css';
-import '../../../node_modules/draft-js/dist/Draft.css'
-
-import dummy from "../../assets/dummy1.jpg"
-
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { auth, database, storage } from '../../firebaseConfig';
-import { async } from '@firebase/util';
 import { addDoc, collection, doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { useAuth } from '../../context/AuthContext';
 import { PuffLoader, BarLoader } from 'react-spinners';
-import RichEditor from '../DraftJs/RichEditor';
 
 export const CreatePost = ({ placeholder }) => {
 	const {loading, setLoading} = useAuth()

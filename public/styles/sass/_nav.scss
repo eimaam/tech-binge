@@ -2,17 +2,24 @@ nav{
     width: 100%;
     top: 0;
     position: fixed;
-    @include flex-row;
-    flex-direction: row-reverse;
-    justify-content: space-between;
     background-color: $primary;
-    padding: $xs-pad $s-pad;
-    font-size: 1.2rem;
+    padding: $s-pad $s-pad;
+
+    .nav--container{
+    @include flex-row;
+    margin: auto;
+    width: 60%;
+    flex-direction: row;
+    justify-content: space-between;
     z-index: 10;
     color: $default;
     padding-inline: 2rem;
     // transition: clip-path 400ms cubic-bezier(0.4, 0, 0.2, 1),
     // background-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    *{
+        color: $default;
+    }
     
     @include mobile{
         @include flex-col;
@@ -21,13 +28,14 @@ nav{
 
     }
 
-    div:first-child{
-        @include mobile{
-            width: 100%;
-            @include flex-row;
-            justify-content: space-between;
-        }
-    }
+    // div:first-child{
+    //     border: solid red;
+    //     @include mobile{
+    //         width: 100%;
+    //         @include flex-row;
+    //         justify-content: space-between;
+    //     }
+    // }
 
     // logoooooooo styling
     // div:first-child{
@@ -55,9 +63,8 @@ nav{
     }
 
     ul{
-        width: 80%;
+        width: 60%;
         @include flex-row;
-        justify-content: space-between;
         transition: all 1s ease-in-out;
         transition-duration: 500;
         transition-delay: 300;
@@ -76,5 +83,11 @@ nav{
             gap: 0.2rem;
             display: none;
         }
+    }
+    }
+
+    // search and toggle icon
+    #icons{
+        @include flex-row;
     }
 }

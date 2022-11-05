@@ -1,10 +1,12 @@
 import React from 'react'
-import { FaBars, FaMoon, FaTimes } from "react-icons/fa"
+import { FaBars, FaMoon, FaSearch, FaTimes } from "react-icons/fa"
+import { CgMenuGridO } from "react-icons/cg"
 import { Link } from 'react-router-dom'
 
 
 import logo from "../assets/techDesk_logo.png"
 import { useAuth } from '../context/AuthContext'
+
 
 export const NavBar = () => {
 
@@ -37,14 +39,31 @@ export const NavBar = () => {
 
   return (
     <nav>
-        <div>
+        <div className='nav--container'>
+            <div>
+                <h2>Tech Binge</h2>
+            </div>
+            <ul id='menu'>
+                <li><Link to="/">Home</Link></li>
+                <li>Tech</li>
+                <li>Cryptocurrency</li>
+                <li>How-Tos</li>
+                <li>Economy</li>
+                <li>Startups</li>
+            </ul>
+            <div id='icons'>
+                <h2><CgMenuGridO /></h2>
+                <h2><FaSearch /></h2>
+            </div>
+        </div>
+        {/* <div>
             <FaBars id='showNav' onClick={toggleNav}/>
             <FaTimes id='closeNav' onClick={toggleNav}/>
-            {/* <img src={logo} alt="" /> */}
+            <img src={logo} alt="" />
             <FaMoon onClick={toggleMode} id="mode"/>
             <button className='btn--small' onClick={logOut}>Sign out</button>
-        </div>
-        <ul id='menu'>
+        </div> */}
+        {/* <ul id='menu'>
             <li><Link to="/">Home</Link></li>
             <li>Tech News</li>
             <li>Business</li>
@@ -54,7 +73,7 @@ export const NavBar = () => {
             <li>Accidents</li>
             <li>Transport & Logistics</li>
             <li>Startups</li>
-        </ul>
+        </ul> */}
     </nav>
   )
 }

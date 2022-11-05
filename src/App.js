@@ -50,6 +50,7 @@ function App() {
           <Route path="/addUsername" element={<AddUsername />} />
         {/* </Route> */}
       </Routes>
+      <Footer />
     </AuthProvider>
   }
     <ToastContainer

@@ -52,7 +52,7 @@ console.log(blogContent)
       {loading 
       ? 
       <div>
-        <p>Loading Articles...</p>
+        <p>Loading Article...</p>
         <p><PuffLoader /></p>
       </div> 
         : 

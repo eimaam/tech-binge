@@ -11,7 +11,7 @@ export const WatchVideos = () => {
       ? <h1 className='loader'><PuffLoader /></h1> 
       :
       <>
-      <h2 className='title'>Featured: </h2>
+      <h2 className='title'>Watch Videos: </h2>
       <div className='section--contents'>
           {allPosts.map((item, index) => (
             <BlogCard
