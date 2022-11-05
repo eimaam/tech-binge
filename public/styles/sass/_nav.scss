@@ -4,6 +4,7 @@ nav{
     position: fixed;
     background-color: $primary;
     padding: $s-pad $s-pad;
+    border-bottom: 1px solid $dark;
 
     .nav--container{
     @include flex-row;
@@ -48,15 +49,22 @@ nav{
     }
 
     ul{
-        width: 60%;
+        width: 65%;
         @include flex-row;
         transition: all 1s ease-in-out;
         transition-duration: 500;
         transition-delay: 300;
+        overflow: scroll;
+
+        &::-webkit-scrollbar, &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-track{
+            display: none;
+        }
 
         li{
-            width: 100%;
             a{
+                width: max-content;
+                @include flex-col;
+                gap: 0.2rem;
 
                 &:active{
                     color: $secondary;
@@ -64,10 +72,41 @@ nav{
             }
         }
 
+        // on mobile
+        @include mobile{
+            display: none;
+        }
+        
+    }
+
+    .menu--list--mobile{
+        display: none;
+        
         @include mobile{
             @include flex-col;
-            width: 100%;
-            display: none;
+            align-items: flex-start;
+            gap: 0.7rem;
+            width: 80%;
+            min-height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background-color: $primary;
+            padding-inline: 1rem;
+            z-index: 10000;
+            overflow-y: scroll;
+            
+            li{
+
+                a{
+                    @include flex-row;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 2rem;
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
 

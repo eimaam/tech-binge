@@ -10,8 +10,6 @@ export const CategoryCard = ({
   start,
   end,
   btnValue,
-
-
   }
   ) => {
 
@@ -31,7 +29,6 @@ export const CategoryCard = ({
             image={posts[start].imageURL}
             title={posts[start].title}
             author={posts[start].author}
-            publishedDate={posts[start].publishDate}
             content={posts[start].content}
         />
       </main>

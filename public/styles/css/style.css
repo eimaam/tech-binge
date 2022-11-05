@@ -18,21 +18,21 @@
 
 h1 {
   font-size: 3rem;
-  color: #0e5267;
+  color: #f7b510;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #116783;
 }
 @media only screen and (max-width: 1250px) {
   h2 {
-    font-size: 1.35rem;
+    font-size: 1.1rem;
   }
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
 }
 
 h4 {
@@ -68,7 +68,7 @@ button:hover, .btn--secondary:hover, input[type=submit]:hover {
 }
 
 .btn--secondary {
-  background-color: #0e5267;
+  background-color: #f7b510;
 }
 
 .btn--small {
@@ -113,7 +113,7 @@ hr {
   width: 100%;
   margin: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
@@ -182,7 +182,7 @@ hr {
 }
 .blog--card h3, .head--posts aside .blog--card h3 {
   font-size: 1rem;
-  color: #0e5267;
+  color: #f7b510;
 }
 .blog--card p, .head--posts aside .blog--card p {
   font-size: 1.05rem;
@@ -218,6 +218,7 @@ nav {
   position: fixed;
   background-color: #116783;
   padding: 1rem 1rem;
+  border-bottom: 1px solid rgb(24, 23, 23);
 }
 nav .nav--container {
   display: flex;
@@ -254,7 +255,7 @@ nav .nav--container #closeNav, nav .nav--container #showNav {
   }
 }
 nav .nav--container ul {
-  width: 60%;
+  width: 65%;
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
@@ -263,22 +264,63 @@ nav .nav--container ul {
   transition: all 1s ease-in-out;
   transition-duration: 500;
   transition-delay: 300;
+  overflow: scroll;
 }
-nav .nav--container ul li {
-  width: 100%;
+nav .nav--container ul::-webkit-scrollbar, nav .nav--container ul::-webkit-scrollbar-thumb, nav .nav--container ul::-webkit-scrollbar-track {
+  display: none;
+}
+nav .nav--container ul li a {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
 }
 nav .nav--container ul li a:active {
-  color: #0e5267;
+  color: #f7b510;
 }
 @media only screen and (max-width: 1250px) {
   nav .nav--container ul {
+    display: none;
+  }
+}
+nav .nav--container .menu--list--mobile {
+  display: none;
+}
+@media only screen and (max-width: 1250px) {
+  nav .nav--container .menu--list--mobile {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    display: none;
+    align-items: flex-start;
+    gap: 0.7rem;
+    width: 80%;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #116783;
+    padding-inline: 1rem;
+    z-index: 10000;
+    overflow-y: scroll;
+  }
+  nav .nav--container .menu--list--mobile li a {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    font-size: 1.2rem;
   }
 }
 nav .nav--container #icons {
@@ -351,7 +393,7 @@ footer .footer--container p {
   align-items: center;
 }
 .admin--nav ul li {
-  color: #0e5267;
+  color: #f7b510;
   text-transform: uppercase;
 }
 .admin--nav ul li:active {
@@ -406,7 +448,7 @@ footer .footer--container p {
   padding: 1rem;
 }
 .create--post .blog--image {
-  border: 1px solid #0e5267;
+  border: 1px solid #f7b510;
   width: 100%;
   height: 300px;
   border-radius: 0.5rem;
@@ -446,7 +488,7 @@ footer .footer--container p {
   border-radius: 0.5rem;
 }
 .stat--card h2 {
-  color: #0e5267;
+  color: #f7b510;
 }
 
 .modal {
@@ -466,7 +508,7 @@ footer .footer--container p {
   padding-block: 2.5rem;
 }
 .modal button:hover, .modal .btn--secondary:hover, .modal input[type=submit]:hover {
-  background-color: #0e5267;
+  background-color: #f7b510;
 }
 @media only screen and (max-width: 1250px) {
   .modal {
@@ -626,7 +668,7 @@ footer .footer--container p {
 }
 
 section {
-  background-color: #0e5267;
+  background-color: #116783;
   width: 100%;
   padding-block: 2rem;
   border-radius: 0.5rem;
@@ -692,7 +734,7 @@ section .section--contents .blog--card h2 {
   margin: auto;
 }
 #blogPost .container--item .title h3 {
-  color: #0e5267;
+  color: #f7b510;
 }
 #blogPost .container--item .title h2 {
   font-size: 3rem;
@@ -720,7 +762,7 @@ section .section--contents .blog--card h2 {
   padding: 1.5rem;
 }
 #blogPost .container--item > p::first-letter {
-  color: #0e5267;
+  color: #f7b510;
   font-size: 6rem;
   margin: 1rem 0.1rem 0.5rem 2rem;
   float: left;
@@ -746,7 +788,7 @@ section .section--contents .blog--card h2 {
   font-size: 2rem;
 }
 #blogPost .container--item .more span {
-  color: #0e5267;
+  color: #f7b510;
 }
 #blogPost .container--item .more .posts {
   width: 100%;
@@ -797,12 +839,12 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
   width: 0.5rem;
 }
 html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
-  border: solid #0e5267;
+  border: solid #f7b510;
   border-radius: 0.5rem;
   background-color: rgb(248, 242, 242);
 }
 html ::-webkit-scrollbar-track, body ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px #0e5267;
+  box-shadow: inset 0 0 6px #f7b510;
 }
 
 a {
@@ -839,7 +881,7 @@ textarea {
   padding: 0.8rem 0.5rem;
   border: 1px solid #116783;
   border-radius: 0.3rem;
-  color: #0e5267;
+  color: #f7b510;
   caret-color: #116783;
   resize: none;
 }

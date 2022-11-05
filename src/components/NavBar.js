@@ -1,11 +1,12 @@
 import React from 'react'
-import { FaBars, FaMoon, FaSearch, FaTimes } from "react-icons/fa"
+import { FaBars, FaBitcoin, FaBrain, FaCode, FaGraduationCap, FaHome, FaLightbulb, FaMoneyBill, FaMoon, FaRocketchat, FaSearch, FaTimes, FaTools, FaTshirt, FaVideo, FaWatchmanMonitoring } from "react-icons/fa"
 import { CgMenuGridO } from "react-icons/cg"
 import { Link } from 'react-router-dom'
 
 
 import logo from "../assets/techDesk_logo.png"
 import { useAuth } from '../context/AuthContext'
+import { useState } from 'react'
 
 
 export const NavBar = () => {
@@ -28,6 +29,8 @@ export const NavBar = () => {
         }
     }
 
+    const [showMenu, setShowMenu] = useState(false)
+
     const myStyle = {
         backgroundColor: "black",
     }
@@ -41,19 +44,43 @@ export const NavBar = () => {
     <nav>
         <div className='nav--container'>
             <div>
-                <h2>Tech Binge</h2>
+                <h2><Link to="/">Tech Binge</Link></h2>
             </div>
-            <ul id='menu'>
+            <ul id='menu--list--desktop'>
                 <li><Link to="/">Home</Link></li>
-                <li>Tech</li>
-                <li>Cryptocurrency</li>
-                <li>How-Tos</li>
-                <li>Economy</li>
-                <li>Startups</li>
+                <li><Link to="/">Events </Link></li>
+                <li><Link to="/">How-Tos</Link></li>
+                <li><Link to="/">Tech</Link></li>
+                <li><Link to="/">Business</Link></li>
+                <li><Link to="/">Education</Link></li>
+                <li><Link to="/">Cryptocurrency</Link></li>
+                <li><Link to="/">Development</Link></li>
+                <li><Link to="/">Startups</Link></li>
+                <li><Link to="/">Fashion & Lifestyle</Link></li>
+                <li><Link to="/">Videos - Watch on T-Binge!</Link></li>
             </ul>
+            {showMenu && 
+            <ul className='menu--list--mobile'>
+                <input type="text" placeholder='Search...' />
+                <br />
+                <li><Link to="/"><FaHome /> Home</Link></li>
+                <li><Link to="/"><FaVideo /> Events </Link></li>
+                <li><Link to="/"><FaLightbulb /> How-Tos</Link></li>
+                <li><Link to="/"><FaTools /> Tech</Link></li>
+                <li><Link to="/"><FaMoneyBill /> Business</Link></li>
+                <li><Link to="/"><FaGraduationCap /> Education</Link></li>
+                <li><Link to="/"><FaBitcoin /> Cryptocurrency</Link></li>
+                <li><Link to="/"><FaCode /> Development</Link></li>
+                <li><Link to="/"><FaCode /> Startups</Link></li>
+                <li><Link to="/"><FaTshirt /> Fashion & Lifestyle</Link></li>
+                <li><Link to="/"><FaVideo /> Videos - Watch on T-Binge!</Link></li>
+                <br />
+                <button className='btn--secondary' onClick={logOut}>Sign Out</button>
+            </ul>
+            }
             <div id='icons'>
-                <h2><CgMenuGridO /></h2>
-                <h2><FaSearch /></h2>
+                <h2 onClick={() => setShowMenu(!showMenu)}><CgMenuGridO /></h2>
+                <h2 onClick={() => setShowMenu(!showMenu)}><FaSearch /></h2>
             </div>
         </div>
         {/* <div>
@@ -65,7 +92,7 @@ export const NavBar = () => {
         </div> */}
         {/* <ul id='menu'>
             <li><Link to="/">Home</Link></li>
-            <li>Tech News</li>
+            <li><Link to="/">Tech News</li>
             <li>Business</li>
             <li>How-Tos</li>
             <li>Cryptocurrency</li>
