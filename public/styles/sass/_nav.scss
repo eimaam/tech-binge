@@ -5,16 +5,16 @@ nav{
     background-color: $primary;
     padding: $s-pad $s-pad;
     border-bottom: 1px solid $dark;
-
+    
     .nav--container{
-    @include flex-row;
-    margin: auto;
-    width: 70%;
-    flex-direction: row;
-    justify-content: space-between;
-    z-index: 10;
-    color: $default;
-    padding-inline: 2rem;
+        @include flex-row;
+        margin: auto;
+        width: 70%;
+        flex-direction: row;
+        justify-content: space-between;
+        z-index: 10;
+        color: $default;
+        padding-inline: 2rem;
 
     @include mobile{
         width: 100%;
@@ -25,7 +25,6 @@ nav{
         }
 
     }
-    
 
     *{
         color: $default;
@@ -81,6 +80,16 @@ nav{
 
     .menu--list--mobile{
         display: none;
+
+        #closeMenu{
+            position: absolute;
+            top: 2rem;
+
+            .close--menu--icon{
+                font-size: 1.5rem;
+                color: red !important;
+            }
+        }
         
         @include mobile{
             @include flex-col;

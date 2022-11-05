@@ -61,6 +61,7 @@ export const NavBar = () => {
             </ul>
             {showMenu && 
             <ul className='menu--list--mobile'>
+                <li id='closeMenu' onClick={() => setShowMenu(false)}><FaTimes className='close--menu--icon'/></li>
                 <input type="text" placeholder='Search...' />
                 <br />
                 <li><Link to="/"><FaHome /> Home</Link></li>

@@ -291,6 +291,14 @@ nav .nav--container ul li a:active {
 nav .nav--container .menu--list--mobile {
   display: none;
 }
+nav .nav--container .menu--list--mobile #closeMenu {
+  position: absolute;
+  top: 2rem;
+}
+nav .nav--container .menu--list--mobile #closeMenu .close--menu--icon {
+  font-size: 1.5rem;
+  color: red !important;
+}
 @media only screen and (max-width: 1250px) {
   nav .nav--container .menu--list--mobile {
     display: flex;
