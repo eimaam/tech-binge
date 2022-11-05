@@ -26,6 +26,10 @@ section{
                 font-size: 1.1rem;
                 color: white;
             }
+
+            @include mobile{
+                width: 210px;
+            }
         }
 
     }

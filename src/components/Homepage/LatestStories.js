@@ -4,16 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import { BlogCard } from './BlogCard'
 import { PuffLoader } from "react-spinners"
 
-export const CategoryCard = ({
-  sectionTitle,
-  posts,
-  start,
-  end,
-  btnValue,
-
-
-  }
-  ) => {
+export const LatestStories = () => {
 
     const { allPosts } = useAuth()
   return (
@@ -21,19 +12,19 @@ export const CategoryCard = ({
       {allPosts.length === 0 ? <PuffLoader /> 
       :
       <>
-      <h2 className="title">{sectionTitle}</h2>
+      <h2 className="title">Latest Stories:</h2>
       <main>
         <BlogCard 
-            id={posts[start].id} 
-            image={posts[start].imageURL}
-            title={posts[start].title}
-            author={posts[start].author}
-            publishedDate={posts[start].publishDate}
-            content={posts[start].content}
+            id={allPosts[4].id} 
+            image={allPosts[4].imageURL}
+            title={allPosts[4].title}
+            author={allPosts[4].author}
+            publishedDate={allPosts[4].publishDate}
+            content={allPosts[4].content}
         />
       </main>
       <div className='posts'>
-        {posts.slice(start+1, end).map((item, index) => (
+        {allPosts.slice(5, 8).map((item, index) => (
           <BlogCard
             key={index} 
             id={item.id} 
@@ -46,7 +37,7 @@ export const CategoryCard = ({
         ))}
       </div>
       <br />
-      <button>{btnValue ? btnValue : `Check out more from ${sectionTitle}`}<FaLongArrowAltRight /></button>
+      <button>Check out more Stories <FaLongArrowAltRight /></button>
       </>
     }
     </div>

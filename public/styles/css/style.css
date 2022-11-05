@@ -649,6 +649,11 @@ section .section--contents .blog--card h2 {
   font-size: 1.1rem;
   color: white;
 }
+@media only screen and (max-width: 1250px) {
+  section .section--contents .blog--card {
+    width: 210px;
+  }
+}
 
 #blogPost .container--item {
   min-height: 100vh;

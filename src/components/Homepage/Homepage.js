@@ -7,6 +7,7 @@ import { CategoryCard} from './CategoryCard'
 import { Section } from './Section'
 import { useAuth } from '../../context/AuthContext'
 import { WatchVideos } from './WatchVideos'
+import { LatestStories } from './LatestStories'
 
 export const Homepage = () => {
   const { allPosts } = useAuth();
@@ -16,12 +17,7 @@ export const Homepage = () => {
         <div className='container--item'>
           <HeadPost />
           <hr />
-          <CategoryCard 
-          sectionTitle="Latest Stories:"
-          posts={allPosts}
-          start={4}
-          end={8}
-          />
+          <LatestStories />
           <hr />
           <Section />
           <hr />
