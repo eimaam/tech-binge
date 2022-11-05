@@ -5,4 +5,9 @@
         align-items: flex-start;
 
         }
+
+
+        @include mobile{
+            margin-top: 2rem;
+        }
     }

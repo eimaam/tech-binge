@@ -22,14 +22,14 @@ export const Homepage = () => {
           <Section />
           <hr />
           <CategoryCard 
-          sectionTitle="Latest Stories:"
+          sectionTitle="How-Tos:"
           posts={allPosts}
           start={4}
           end={8}
           />
           <hr />
           <CategoryCard 
-          sectionTitle="Latest Stories:"
+          sectionTitle="Technology:"
           posts={allPosts}
           start={4}
           end={8}
@@ -38,7 +38,7 @@ export const Homepage = () => {
           <WatchVideos />
           <hr />
           <CategoryCard 
-          sectionTitle="Latest Stories:"
+          sectionTitle="Cryptocurrency:"
           posts={allPosts}
           start={4}
           end={8}

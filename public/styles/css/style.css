@@ -206,6 +206,11 @@ hr {
 #homepage .container--item {
   align-items: flex-start;
 }
+@media only screen and (max-width: 1250px) {
+  #homepage {
+    margin-top: 2rem;
+  }
+}
 
 nav {
   width: 100%;
@@ -221,26 +226,21 @@ nav .nav--container {
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 60%;
+  width: 70%;
   flex-direction: row;
   justify-content: space-between;
   z-index: 10;
   color: rgb(248, 242, 242);
   padding-inline: 2rem;
 }
-nav .nav--container * {
-  color: rgb(248, 242, 242);
-}
 @media only screen and (max-width: 1250px) {
   nav .nav--container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     padding-inline: 1rem;
-    transition: transform 1s ease-out;
   }
+}
+nav .nav--container * {
+  color: rgb(248, 242, 242);
 }
 nav .nav--container img {
   width: 100px;
@@ -264,6 +264,9 @@ nav .nav--container ul {
   transition-duration: 500;
   transition-delay: 300;
 }
+nav .nav--container ul li {
+  width: 100%;
+}
 nav .nav--container ul li a:active {
   color: #0e5267;
 }
@@ -274,11 +277,11 @@ nav .nav--container ul li a:active {
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
-    gap: 0.2rem;
+    width: 100%;
     display: none;
   }
 }
-nav #icons {
+nav .nav--container #icons {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;

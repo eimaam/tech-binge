@@ -25,7 +25,7 @@ function App() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 1500);
+    }, 2500);
   }, [])
 
   return (
@@ -33,7 +33,7 @@ function App() {
     {loading 
       ? 
       <div className="container">
-        <ClimbingBoxLoader color="#116783" />
+        <h1><ClimbingBoxLoader color="#116783" /></h1>
       </div>
     :
     <AuthProvider>

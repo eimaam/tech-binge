@@ -14,7 +14,7 @@ export const HeadPost = () => {
   return (
     <div className='head--posts'>
       {allPosts.length === 0 
-      ? <div className='main'>
+      ? <div className='loader'>
           <h1><PuffLoader /> </h1>
         </div>
       :

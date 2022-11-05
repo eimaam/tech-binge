@@ -18,7 +18,10 @@ export const CategoryCard = ({
     const { allPosts } = useAuth()
   return (
     <div className='category--card'>
-      {allPosts.length === 0 ? <PuffLoader /> 
+      {allPosts.length === 0 
+      ? <div className='loader'>
+          <PuffLoader /> 
+        </div>
       :
       <>
       <h2 className="title">{sectionTitle}</h2>
