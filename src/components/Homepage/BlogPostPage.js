@@ -18,15 +18,12 @@ export const BlogPostPage = (props) => {
 
   let { title } = useParams()
 
-  console.log(title)
-
-
+  // state to save fetched blogContent from url
   const [blogContent, setBlogContent] = useState([])
   
   
   useEffect(() => {
     fetchPost()
-    
   }, [])
 
 // function to fetch header Posts
@@ -57,11 +54,11 @@ console.log(blogContent)
       </div> 
         : 
         <div className='container--item'>
-        {blogContent.length !== 0 ? <img src={blogContent[0].imageURL} alt="dummy" /> : "loading image..."}
+        {blogContent.length !== 0 ? <img src={blogContent[0].imageURL} alt="dummy" className='post--image'/> : "loading image..."}
         <div className='title'>
           <h3>{blogContent.length !== 0 && `Category: ${blogContent[0].category}` }</h3>
           <p>Published: {blogContent.length !== 0 && blogContent[0].publishDate} by {blogContent.length !== 0 && blogContent[0].author}</p>
-          {/* <h2>{blogContent.length !== 0 && title}</h2> */}
+          <h2>{blogContent.length !== 0 && blogContent[0].title}</h2>
           <div className='share--buttons'>
             <h3><a href="/" target="_blank"><FaTwitterSquare /></a></h3>
             <h3><a href="/" target="_blank"><FaWhatsappSquare /></a></h3>
@@ -69,7 +66,8 @@ console.log(blogContent)
             <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
           </div>
         </div>
-        {/* blog body  */}
+        {/* setting dangerouslySetInnerHTML to recognize 
+        html tags from Jodit Editor used for updating  */}
         <p dangerouslySetInnerHTML={{__html: blogContent.length !== 0 ? blogContent[0].content : ""} } />
         <div className='flex'>
             <p>Share this story:</p>
@@ -79,7 +77,7 @@ console.log(blogContent)
             <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
           </div>
         <div className='more'>
-          {/* <h3>More Stories from <span>{blogContent[0].category}</span></h3> */}
+          <h3>More Stories from <span>{blogContent.length !== 0 && blogContent[0].category}</span></h3>
           <div className='posts'>
             <BlogCard />
             <BlogCard />

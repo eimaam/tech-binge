@@ -668,11 +668,13 @@ section .section--contents .blog--card h2 {
     margin: auto;
   }
 }
-#blogPost .container--item img {
+#blogPost .container--item .post--image {
   width: 60%;
+  height: 300px;
+  margin-top: 3rem;
 }
 @media only screen and (max-width: 1250px) {
-  #blogPost .container--item img {
+  #blogPost .container--item .post--image {
     width: 90%;
   }
 }

@@ -14,8 +14,11 @@
             @include tablet-width;
         }
 
-        img{
+        .post--image{
             width: 60%;
+            height: 300px;
+            margin-top: 3rem;
+
 
             @include mobile{
                 width: 90%;
