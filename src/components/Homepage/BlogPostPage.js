@@ -9,24 +9,42 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { PuffLoader } from "react-spinners"
+import { collection, getDoc, onSnapshot, query, where } from 'firebase/firestore'
+import { database } from '../../firebaseConfig'
 
 export const BlogPostPage = (props) => {
-  const {loading, setLoading} = useAuth()
-  const { title } = useParams()
+  // const {loading, setLoading} = useAuth()
+  const [loading, setLoading] = useState(false)
 
-  const location = useLocation()
-  const [pageContent, setPageContent] = useState([])
+  let { title } = useParams()
 
-  const data = location.state
-  // setPageContent(data)
-  console.log(data)
+  console.log(title)
 
+
+  const [blogContent, setBlogContent] = useState([])
+  
+  
   useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000);
-  },[location])
+    fetchPost()
+    
+  }, [])
+
+// function to fetch header Posts
+  const fetchPost = async () => {
+    try{
+      const q = query(collection(database, "posts"), where("id", "==", `${title}`))
+      await onSnapshot(q, snapShot => {
+        setBlogContent(snapShot.docs.map(data => ({
+          ...data.data(),
+          id: data.id
+        })))
+      })
+    }
+    catch(error){
+      console.log(error)
+    }
+  };
+console.log(blogContent)
   
   return (
     <div className='container' id='blogPost'>
@@ -34,16 +52,16 @@ export const BlogPostPage = (props) => {
       {loading 
       ? 
       <div>
-        <p>Loading Article...</p>
+        <p>Loading Articles...</p>
         <p><PuffLoader /></p>
-        </div> : 
-      <div className='container--item'>
-        <img src={dummy} alt="dummy" />
+      </div> 
+        : 
+        <div className='container--item'>
+        {blogContent.length !== 0 ? <img src={blogContent[0].imageURL} alt="dummy" /> : "loading image..."}
         <div className='title'>
-          <h3>Category: Funding</h3>
-          <p>{pageContent.date}</p>
-          <p>Author: {pageContent.author}</p>
-          <h2>{title}</h2>
+          <h3>{blogContent.length !== 0 && `Category: ${blogContent[0].category}` }</h3>
+          <p>Published: {blogContent.length !== 0 && blogContent[0].publishDate} by {blogContent.length !== 0 && blogContent[0].author}</p>
+          {/* <h2>{blogContent.length !== 0 && title}</h2> */}
           <div className='share--buttons'>
             <h3><a href="/" target="_blank"><FaTwitterSquare /></a></h3>
             <h3><a href="/" target="_blank"><FaWhatsappSquare /></a></h3>
@@ -51,7 +69,8 @@ export const BlogPostPage = (props) => {
             <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
           </div>
         </div>
-        <p>{pageContent.content}</p>
+        {/* blog body  */}
+        <p dangerouslySetInnerHTML={{__html: blogContent.length !== 0 ? blogContent[0].content : ""} } />
         <div className='flex'>
             <p>Share this story:</p>
             <h3><a href="/" target="_blank"><FaTwitterSquare /></a></h3>
@@ -60,7 +79,7 @@ export const BlogPostPage = (props) => {
             <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
           </div>
         <div className='more'>
-          <h3>More Stories from $Category:</h3>
+          {/* <h3>More Stories from <span>{blogContent[0].category}</span></h3> */}
           <div className='posts'>
             <BlogCard />
             <BlogCard />

@@ -3,7 +3,7 @@ import { useAuth } from '../../context/AuthContext'
 import { BlogCard } from './BlogCard'
 import { PuffLoader } from "react-spinners"
 
-export const Section = () => {
+export const WatchVideos = () => {
   const { allPosts } = useAuth()
   return (
     <section>

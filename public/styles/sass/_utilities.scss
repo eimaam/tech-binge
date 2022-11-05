@@ -3,12 +3,18 @@
 
 // Defaults
 
-// Header sizes
-// font sizes
 .flex{
     @include flex-row;
     gap: 0.3rem;
 }
+
+.flex-col{
+    @include flex-col;
+    gap: 0.3rem;
+}
+
+// Header sizes
+// font sizes
 
 h1{
     font-size: 3rem;
@@ -100,7 +106,12 @@ hr{
         margin-block: 1rem;
     }
 }
-
+// loader
+.loader{
+    width: 100%;
+    margin: auto;
+    @include flex-col;
+}
 // container default
 .container{
     width: 100%;

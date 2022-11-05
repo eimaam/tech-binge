@@ -7,14 +7,23 @@
   gap: 0.3rem;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 h1 {
   font-size: 3rem;
-  color: #f7b510;
+  color: #383838;
 }
 
 h2 {
   font-size: 1.5rem;
-  color: #116783;
+  color: #383838;
 }
 @media only screen and (max-width: 1250px) {
   h2 {
@@ -42,14 +51,14 @@ p {
 button, .btn--secondary, input[type=submit] {
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  color: rgb(248, 242, 242);
+  color: #fff;
   text-transform: capitalize;
-  background-color: #116783;
+  background-color: #383838;
   border-radius: 0.5rem;
   cursor: pointer;
 }
 button:hover, .btn--secondary:hover, input[type=submit]:hover {
-  background-color: #6fdcfe;
+  background-color: #383838;
 }
 @media only screen and (max-width: 1250px) {
   button, .btn--secondary, input[type=submit] {
@@ -59,7 +68,7 @@ button:hover, .btn--secondary:hover, input[type=submit]:hover {
 }
 
 .btn--secondary {
-  background-color: #f7b510;
+  background-color: #383838;
 }
 
 .btn--small {
@@ -90,14 +99,24 @@ ul li {
 
 hr {
   margin: 2rem auto;
-  color: #6fdcfe;
-  border: 1px solid #6fdcfe;
+  color: #383838;
+  border: 1px solid #383838;
   width: 80%;
 }
 @media only screen and (max-width: 1250px) {
   hr {
     margin-block: 1rem;
   }
+}
+
+.loader {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .container, .dashboard--container, .create--post {
@@ -122,7 +141,7 @@ hr {
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 65%;
+  width: 70%;
   margin: auto;
   flex-wrap: wrap;
 }
@@ -148,6 +167,9 @@ hr {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-transform: capitalize;
 }
 @media only screen and (max-width: 1250px) {
   .blog--card, .head--posts aside .blog--card {
@@ -155,12 +177,12 @@ hr {
   }
 }
 .blog--card h2, .head--posts aside .blog--card h2 {
-  color: rgb(24, 23, 23);
+  color: #383838;
   line-height: 1.2;
 }
 .blog--card h3, .head--posts aside .blog--card h3 {
   font-size: 1rem;
-  color: #f7b510;
+  color: #383838;
 }
 .blog--card p, .head--posts aside .blog--card p {
   font-size: 1.05rem;
@@ -169,6 +191,12 @@ hr {
   width: 100%;
   height: 150px;
   border-radius: 0.5rem;
+}
+@media only screen and (max-width: 1250px) {
+  .blog--card img, .head--posts aside .blog--card img {
+    height: 110px;
+    margin: 0;
+  }
 }
 
 #homepage {
@@ -189,11 +217,11 @@ nav {
   align-items: center;
   flex-direction: row-reverse;
   justify-content: space-between;
-  background-color: #116783;
+  background-color: #383838;
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
   z-index: 10;
-  color: rgb(248, 242, 242);
+  color: #fff;
   padding-inline: 2rem;
 }
 @media only screen and (max-width: 1250px) {
@@ -242,7 +270,7 @@ nav ul {
   transition-delay: 300;
 }
 nav ul li a:active {
-  color: #f7b510;
+  color: #383838;
 }
 @media only screen and (max-width: 1250px) {
   nav ul {
@@ -257,15 +285,15 @@ nav ul li a:active {
 }
 
 footer {
-  background-color: #116783;
+  background-color: #383838;
   margin-top: 3rem;
   padding-top: 1rem;
   padding-bottom: 5rem;
-  color: rgb(248, 242, 242);
+  color: #fff;
   border: solid red;
 }
 footer .footer--container {
-  width: 65%;
+  width: 70%;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -276,7 +304,7 @@ footer .footer--container {
   justify-content: space-between;
 }
 footer .footer--container h2 {
-  color: #f7b510;
+  color: #383838;
 }
 footer .footer--container p {
   font-size: 1rem;
@@ -298,7 +326,7 @@ footer .footer--container p {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  background-color: #116783;
+  background-color: #383838;
   width: 20%;
   min-height: 100vh;
   position: fixed;
@@ -306,7 +334,7 @@ footer .footer--container p {
   z-index: 99999999;
 }
 .admin--nav h2 {
-  color: rgb(248, 242, 242);
+  color: #fff;
 }
 .admin--nav h2:active {
   background-color: red;
@@ -319,7 +347,7 @@ footer .footer--container p {
   align-items: center;
 }
 .admin--nav ul li {
-  color: #f7b510;
+  color: #383838;
   text-transform: uppercase;
 }
 .admin--nav ul li:active {
@@ -347,7 +375,7 @@ footer .footer--container p {
 }
 .create--post label {
   font-size: 1.5rem;
-  color: #116783;
+  color: #383838;
 }
 .create--post form {
   width: 100%;
@@ -374,7 +402,7 @@ footer .footer--container p {
   padding: 1rem;
 }
 .create--post .blog--image {
-  border: 1px solid #f7b510;
+  border: 1px solid #383838;
   width: 100%;
   height: 300px;
   border-radius: 0.5rem;
@@ -399,7 +427,7 @@ footer .footer--container p {
 }
 
 .stat--card {
-  background-color: #116783;
+  background-color: #383838;
   padding: 1rem;
   width: 300px;
   display: flex;
@@ -414,7 +442,7 @@ footer .footer--container p {
   border-radius: 0.5rem;
 }
 .stat--card h2 {
-  color: #f7b510;
+  color: #383838;
 }
 
 .modal {
@@ -425,7 +453,7 @@ footer .footer--container p {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  background-color: #6fdcfe;
+  background-color: #383838;
   padding-block: 3rem;
   border-radius: 0.5rem;
 }
@@ -434,7 +462,7 @@ footer .footer--container p {
   padding-block: 2.5rem;
 }
 .modal button:hover, .modal .btn--secondary:hover, .modal input[type=submit]:hover {
-  background-color: #f7b510;
+  background-color: #383838;
 }
 @media only screen and (max-width: 1250px) {
   .modal {
@@ -455,6 +483,7 @@ footer .footer--container p {
   margin-block: 2rem;
 }
 .head--posts .main .blog--card img {
+  width: 100%;
   height: 300px;
 }
 .head--posts aside {
@@ -463,15 +492,22 @@ footer .footer--container p {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid #6fdcfe;
+  border-left: 1px solid #383838;
   gap: 0;
 }
 .head--posts aside .blog--card {
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
 }
 @media only screen and (max-width: 1250px) {
   .head--posts aside .blog--card {
-    flex-direction: column;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .head--posts aside {
+    border: none;
   }
 }
 @media only screen and (max-width: 1250px) {
@@ -481,17 +517,16 @@ footer .footer--container p {
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr;
     margin-block: 0.5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
   }
   .head--posts img {
     width: 100%;
   }
-  .head--posts .main .blog--card img {
-    height: 200px;
-  }
-  .head--posts aside {
-    border: none;
+  .head--posts .main {
+    width: 100%;
   }
 }
 
@@ -505,12 +540,13 @@ footer .footer--container p {
   align-items: flex-start;
   width: 70%;
   gap: 0;
-  border-right: 1px solid #6fdcfe;
+  border-right: 1px solid #383838;
 }
 @media only screen and (max-width: 1250px) {
   .category--card {
     width: 95%;
     margin: auto;
+    border: none;
     border: none;
   }
 }
@@ -539,26 +575,30 @@ footer .footer--container p {
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
+    grid-template-columns: 1fr 1fr;
   }
   .category--card main .blog--card img {
-    height: 200px;
+    height: 300px;
   }
 }
 .category--card .posts {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  gap: 0.3rem;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 @media only screen and (max-width: 1250px) {
   .category--card .posts {
+    display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
   }
   .category--card .posts .blog--card {
     flex-direction: row;
-    gap: 0.8rem;
   }
   .category--card .posts .blog--card h2 {
     font-size: 1.05rem;
@@ -582,9 +622,12 @@ footer .footer--container p {
 }
 
 section {
-  background-color: white;
+  background-color: #333;
   width: 100%;
   padding-block: 2rem;
+}
+section * {
+  color: white;
 }
 section .title {
   padding-inline: 1rem;
@@ -592,8 +635,10 @@ section .title {
 section .section--contents {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 1rem;
+  gap: 0.5rem;
   overflow: scroll;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 section .section--contents ::-webkit-scrollbar {
   display: none;
@@ -603,6 +648,7 @@ section .section--contents .blog--card {
 }
 section .section--contents .blog--card h2 {
   font-size: 1.1rem;
+  color: white;
 }
 
 #blogPost .container--item {
@@ -637,7 +683,7 @@ section .section--contents .blog--card h2 {
   margin: auto;
 }
 #blogPost .container--item .title h3 {
-  color: #f7b510;
+  color: #383838;
 }
 #blogPost .container--item .title h2 {
   font-size: 3rem;
@@ -665,7 +711,7 @@ section .section--contents .blog--card h2 {
   padding: 1.5rem;
 }
 #blogPost .container--item > p::first-letter {
-  color: #f7b510;
+  color: #383838;
   font-size: 6rem;
   margin: 1rem 0.1rem 0.5rem 2rem;
   float: left;
@@ -687,8 +733,11 @@ section .section--contents .blog--card h2 {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  color: #116783;
+  color: #383838;
   font-size: 2rem;
+}
+#blogPost .container--item .more span {
+  color: #383838;
 }
 #blogPost .container--item .more .posts {
   width: 100%;
@@ -713,7 +762,7 @@ section .section--contents .blog--card h2 {
   height: 100px;
 }
 #blogPost .container--item .comment--box {
-  border: solid #6fdcfe;
+  border: solid #383838;
   width: 70%;
   height: 300px;
 }
@@ -730,9 +779,9 @@ body {
   line-height: 1.3;
   width: 100%;
   height: 100%;
-  color: rgb(24, 23, 23);
+  color: #383838;
   text-align: justify;
-  background-color: rgb(248, 242, 242);
+  background-color: #fff;
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -768,16 +817,16 @@ textarea {
   font-family: inherit;
   font-size: 1.2rem;
   padding: 0.8rem 0.5rem;
-  border: 1px solid #116783;
+  border: 1px solid #383838;
   border-radius: 0.3rem;
-  color: #f7b510;
-  caret-color: #116783;
+  color: #383838;
+  caret-color: #383838;
   resize: none;
 }
 input:hover,
 select:hover,
 textarea:hover {
-  border: 1px solid #116783;
+  border: 1px solid #383838;
 }
 @media only screen and (max-width: 1250px) {
   input,

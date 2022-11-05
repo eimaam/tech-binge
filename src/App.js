@@ -25,36 +25,36 @@ function App() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 1000);
+    }, 1500);
   }, [])
 
   return (
     <Router>
-    {/* {loading 
+    {loading 
       ? 
       <div className="container">
-      <ClimbingBoxLoader color="#116783" />
+        <ClimbingBoxLoader color="#116783" />
       </div>
-    : */}
+    :
     <AuthProvider>
     {/* <NavBar /> */}
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/post/:title" element={<BlogPostPage />} />
+        <Route path="/:title" element={<BlogPostPage />} />
         <Route path="/admin" element={<Login />} />
         {/* Private Routes */}
-        <Route element={<PrivateRoutes />}>
+        {/* <Route element={<PrivateRoutes />}> */}
           <Route exact path="dashboard" element={<Dashboard />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/addUsername" element={<AddUsername />} />
-        </Route>
+        {/* </Route> */}
       </Routes>
     </AuthProvider>
+  }
     <ToastContainer
           autoClose={3000}
           />
-    {/* } */}
       </Router>
   );
 }

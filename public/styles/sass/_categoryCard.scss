@@ -9,6 +9,7 @@
     @include mobile{
         @include m-width;
         border: none;
+        border: none;
     }
 
     .title{
@@ -33,9 +34,10 @@
             // mobile
             @include mobile{
                 @include flex-col;
+                grid-template-columns: 1fr 1fr;
 
                 img{
-                    height: 200px;
+                    height: 300px;
                 }
             }
         }
@@ -43,17 +45,17 @@
     }
 
     .posts{
-        @include flex-row;
+        @include grid(3, 1fr);
+        gap: 0.3rem;
+        align-items: flex-start;
         justify-content: flex-start;
 
         // mobile{
         @include mobile{
-            flex-direction: column;
+            @include flex-col;
 
             .blog--card{
                 flex-direction: row;
-                gap: 0.8rem;
-
                 h2{
                     font-size: 1.05rem;
                 }

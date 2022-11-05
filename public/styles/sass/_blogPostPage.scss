@@ -86,6 +86,9 @@
             }
 
         .more{
+            span{
+                color: $secondary;
+            }
             .posts{
                 width: 100%;
                 @include flex-row;

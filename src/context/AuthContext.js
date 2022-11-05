@@ -8,6 +8,7 @@ import { addDoc, collection, doc, getDocs, setDoc, Timestamp } from 'firebase/fi
 import { auth, database, storage } from '../firebaseConfig';
 import { setUserId } from 'firebase/analytics';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 
 
@@ -30,11 +31,23 @@ export default function AuthProvider({ children }){
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
 
-    const [allPost, setAllPost] = useState([])
+    const [allPosts, setAllPosts] = useState([])
+
+    useEffect(() => {
+      fetchAllPost()
+    }, [])
 
     const fetchAllPost = async () => {
-      let posts = await getDocs(doc(postRef))
-    }
+      setLoading(true)
+      await getDocs(collection(database, "posts"))
+      .then((querySnapshot) => {
+        const data = querySnapshot.docs.map((doc) => ({
+          ...doc.data()
+        }));
+        setAllPosts(data)
+      })
+      setLoading(false) 
+  }
 
     
     const logOut = async () => {
@@ -64,6 +77,9 @@ export default function AuthProvider({ children }){
       setError,
       navigate,
       logOut,
+      fetchAllPost,
+      allPosts,
+      setAllPosts,
 
 
     }

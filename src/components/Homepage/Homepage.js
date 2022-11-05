@@ -5,27 +5,49 @@ import { NavBar } from '../NavBar'
 import { HeadPost } from './HeadPost'
 import { CategoryCard} from './CategoryCard'
 import { Section } from './Section'
+import { useAuth } from '../../context/AuthContext'
+import { WatchVideos } from './WatchVideos'
 
 export const Homepage = () => {
+  const { allPosts } = useAuth();
   return (
     <div className='container' id='homepage'>
       <NavBar />
         <div className='container--item'>
           <HeadPost />
           <hr />
-          <CategoryCard />
+          <CategoryCard 
+          sectionTitle="Latest Stories:"
+          posts={allPosts}
+          start={4}
+          end={8}
+          />
           <hr />
           <Section />
           <hr />
-          <CategoryCard />
+          <CategoryCard 
+          sectionTitle="Latest Stories:"
+          posts={allPosts}
+          start={4}
+          end={8}
+          />
           <hr />
-          <CategoryCard />
+          <CategoryCard 
+          sectionTitle="Latest Stories:"
+          posts={allPosts}
+          start={4}
+          end={8}
+          />
           <hr />
-          <CategoryCard />
+          <WatchVideos />
           <hr />
-          <CategoryCard />
-          <hr />
-          <CategoryCard />
+          <CategoryCard 
+          sectionTitle="Latest Stories:"
+          posts={allPosts}
+          start={4}
+          end={8}
+          />
+          
         </div>
     </div>
   )

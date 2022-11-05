@@ -17,7 +17,7 @@
 @mixin grid($number, $sizes){
     display: grid;
     grid-template-columns: repeat($number, $sizes);
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 @mixin mobile(){
@@ -40,7 +40,7 @@
 }
 
 // width for all first divs of containers - Desktop 
-@mixin desk-width($width: 65%){
+@mixin desk-width($width: 70%){
     width: $width;
     margin: auto;
 }

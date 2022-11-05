@@ -3,6 +3,10 @@ import JoditEditor from 'jodit-react';
 import { useEffect } from 'react';
 import { AdminNav } from './AdminNav';
 import { toast } from 'react-toastify';
+import {Editor, EditorState} from 'draft-js';
+// import 'draft-js/dist/Draft.css';
+import '../DraftJs/RichEditor.css';
+import '../../../node_modules/draft-js/dist/Draft.css'
 
 import dummy from "../../assets/dummy1.jpg"
 
@@ -12,6 +16,7 @@ import { async } from '@firebase/util';
 import { addDoc, collection, doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { useAuth } from '../../context/AuthContext';
 import { PuffLoader, BarLoader } from 'react-spinners';
+import RichEditor from '../DraftJs/RichEditor';
 
 export const CreatePost = ({ placeholder }) => {
 	const {loading, setLoading} = useAuth()
@@ -82,14 +87,15 @@ export const CreatePost = ({ placeholder }) => {
 
     // final date format
     const date = `${day}/${month}/${year}`
-
+	// creating date format with no / to create a link
+	const datePlain = `${day}${month}${year}`
     // end of date formatting
 
 	// function to upload Image to Firestore
 	const uploadImage = async (e) => {
 		e.preventDefault()
 		if(!image){
-			toast.error('No Image Added! Dummy Image Used by Default!')
+			toast.error('Image is empty!')
 		}
 		const uploadTask = uploadBytesResumable(storageRef, image)
 		uploadTask.on("state_changed", (snapshot) => {
@@ -109,7 +115,6 @@ export const CreatePost = ({ placeholder }) => {
 	);
 	}
 
-	console.log(imageURL)
 
 	// CREATE Post function
 	const addPost = async (e) => {
@@ -125,11 +130,12 @@ export const CreatePost = ({ placeholder }) => {
 					content: content,
 					author: "Imam Dahir Dan-Azumi",
 					publishDate: date,
+					id: `${datePlain}${data.title.toLowerCase()}`
 				})
 				toast.success('New Blog Added')
 				setLoading(false)
 			}
-			setLoading(false)
+			
 		}
 		catch(error){
 			console.log(error)
@@ -137,6 +143,7 @@ export const CreatePost = ({ placeholder }) => {
 		setLoading(false)
 	}
 // end of func
+
 
 	return (
 		<>
@@ -175,7 +182,7 @@ export const CreatePost = ({ placeholder }) => {
 					</div>
 				</form>
 				<div className='jodit--editor'>
-					<label htmlFor="content">Post Content:</label>
+					<label htmlFor="content">Blog Post Content:</label>
 					<JoditEditor
 						ref={editor}
 						value={content}
@@ -185,14 +192,31 @@ export const CreatePost = ({ placeholder }) => {
 						onChange={newContent => {}}
 					/>
 				</div>
-				{uploadProgress > 0 && uploadProgress < 100 && <p><BarLoader />Checking Post Contents.... {uploadProgress}%</p>}
-				{uploadProgress == 100 && <p>Check done! Click on Create Post! {uploadProgress}%</p>}
-				{uploadProgress !== 100 && <button onClick={uploadImage}>Check Post</button>}
-				{/* loading animation showing posting... */}
-				{loading && <PuffLoader />}
-				{uploadProgress == 100 && <button onClick={addPost}>CREATE POST</button>}
+				<div className='flex-col'>
+					{uploadProgress > 0 && uploadProgress < 100 
+					&& <p>
+							<BarLoader /> 
+							<br /> Checking Post Contents.... {uploadProgress}%
+						</p>
+						}
+						<br />
+					{uploadProgress == 100 
+					&& <p>Done! Click on Create Post! </p>}
+					{uploadProgress !== 100 
+					&& <button onClick={uploadImage}>Check Post</button>}
+					{/* loading animation showing posting... */}
+					<br />
+					{loading 
+					&& <p><PuffLoader /></p>
+					}
+					{uploadProgress == 100 
+					&& <button onClick={addPost}>CREATE POST</button>}
+				</div>
 				<div className='blog--image'>
-					{image ? <img src={`${imageURL}`} alt={image.name} /> : <i>Blog Post image appears here...</i>}
+					{image 
+					? <img src={`${imageURL}`} alt={image.name} /> 
+					: <i>Blog Post image appears here...</i>
+					}
 				</div>
 			</div>
 		</div>

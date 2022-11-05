@@ -1,7 +1,11 @@
 section{
-    background-color: white;
+    background-color: #333;
     width: $w-screen;
     padding-block: $l-pad;
+    
+    *{
+        color: white;
+    }
 
     .title{
         padding-inline: $s-pad;
@@ -11,6 +15,9 @@ section{
     .section--contents{
         @include grid(10, 1fr);
         overflow: scroll;
+        justify-content: flex-start;
+        align-items: flex-start;
+        
         ::-webkit-scrollbar{
             display: none;
         }
@@ -20,6 +27,7 @@ section{
 
             h2{
                 font-size: 1.1rem;
+                color: white;
             }
         }
 
