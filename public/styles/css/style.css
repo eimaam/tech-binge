@@ -847,7 +847,7 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
   width: 0.5rem;
 }
 html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
-  border: solid #f7b510;
+  border: 1px solid #f7b510;
   border-radius: 0.5rem;
   background-color: rgb(248, 242, 242);
 }

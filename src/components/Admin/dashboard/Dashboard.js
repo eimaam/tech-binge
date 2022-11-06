@@ -1,8 +1,20 @@
+import { onAuthStateChanged } from 'firebase/auth'
 import React from 'react'
-import { AdminNav } from './AdminNav'
+import { useEffect } from 'react'
+import { useAuth } from '../../../context/AuthContext'
+import { auth } from '../../../firebaseConfig'
+import { AdminNav } from '../AdminNav'
 import { StatCard } from './StatCard'
 
 export const Dashboard = () => {
+  const { navigate } = useAuth()
+  useEffect(() => {
+    onAuthStateChanged(auth, data => {
+      if(!data){
+        navigate('/admin')
+      }
+    })
+  })
   const data = [
     {
       total: "100+",
@@ -16,6 +28,7 @@ export const Dashboard = () => {
   const statCards = data.map((item, index) => {
     return <StatCard key={index} value={item.value} title={item.title}/>
   })
+  
   return (
     <div>
         <AdminNav />

@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom'
 import logo from "../assets/techDesk_logo.png"
 import { useAuth } from '../context/AuthContext'
 import { useState } from 'react'
-
+import { useData } from '../context/DataContext'
+import { auth } from '../firebaseConfig'
 
 export const NavBar = () => {
 
-    const { logOut } = useAuth()
+    const { logOut, user } = useAuth()
+    const { userInfo } = useData()
 
     const toggleNav = () => {
         const showNav = document.getElementById('showNav')
@@ -59,6 +61,8 @@ export const NavBar = () => {
                 <li><Link to="/">Fashion & Lifestyle</Link></li>
                 <li><Link to="/">Videos - Watch on T-Binge!</Link></li>
             </ul>
+
+            {/* MOBILE: menu list  */}
             {showMenu && 
             <ul className='menu--list--mobile'>
                 <li id='closeMenu' onClick={() => setShowMenu(false)}><FaTimes className='close--menu--icon'/></li>
@@ -76,6 +80,7 @@ export const NavBar = () => {
                 <li><Link to="/"><FaTshirt /> Fashion & Lifestyle</Link></li>
                 <li><Link to="/"><FaVideo /> Videos - Watch on T-Binge!</Link></li>
                 <br />
+                {/* <li>{auth.currentUser}</li> */}
                 <button className='btn--secondary' onClick={logOut}>Sign Out</button>
             </ul>
             }

@@ -3,9 +3,9 @@ import { Outlet } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { auth } from '../firebaseConfig'
 
-export const PrivateRoutes = () => {
-    const { navigate } = useAuth()
+export const ProtectedRoutes = () => {
+    const { navigate, user } = useAuth()
   return (
-    auth.currentUser ? <Outlet /> : navigate('admin')
+    user ? <Outlet /> : navigate('admin')
   )
 }

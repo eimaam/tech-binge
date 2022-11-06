@@ -7,17 +7,23 @@ import { toast } from 'react-toastify'
 import { useAuth } from '../../context/AuthContext'
 import { auth, database } from '../../firebaseConfig'
 import { ResetPass } from './ResetPass'
+import { PuffLoader } from "react-spinners"
 
 export const Login = () => {
+  
     useEffect(() => {
         onAuthStateChanged(auth, data => {
-            data && navigate('/dashboard')
+            if(data){
+              navigate('/dashboard')
+            }else{
+              navigate('/admin')
+            }
         })
     }, [])
-    const {loading, setLoading, error, setError, navigate} = useAuth();
 
+    const {loading, setLoading, error, setError, navigate, user} = useAuth();
     const [showModal, setShowModal] = useState(false)
-    const [user, setUser] = useState({
+    const [data, setData] = useState({
         email: "",
         password: ""
     })
@@ -27,22 +33,21 @@ export const Login = () => {
         e.preventDefault()
         const {name, value} = e.target
         
-        setUser(prevData => ({
+        setData(prevData => ({
             ...prevData,
             [name]: value
         }))
-        console.log(user)
     }
 
     const login = async (e) => {
         e.preventDefault()
         setLoading(true)
         try{
-          setPersistence(auth, browserLocalPersistence)
-          await signInWithEmailAndPassword(auth, user.email, user.password)
+          await setPersistence(auth, browserLocalPersistence)
+          await signInWithEmailAndPassword(auth, data.email, data.password)
           .then(res => {
             toast.success('Welcome...')
-            navigate('/addusername')
+            navigate('/dashboard')
           })
         }
         catch(err){
@@ -80,7 +85,7 @@ export const Login = () => {
                 <input 
                 type="email" 
                 name="email"
-                value={user.email}
+                value={data.email}
                 placeholder="Email Address"
                 onChange={handleChange}
                 />
@@ -88,13 +93,16 @@ export const Login = () => {
                 type="password" 
                 name="password"
                 placeholder="Password"
-                value={user.password}
+                value={data.password}
                 onChange={handleChange}
                 />
-                <input 
-                type="submit" 
-                value="login"                
-                />
+                {loading ? <button className='loader' ><PuffLoader size={25} color="white"/></button>
+                  :
+                  <input 
+                  type="submit" 
+                  value="login"                
+                  />
+                }
                 <div>
                     <p className='flex'>Forgot Password? <button type='button' className='btn--small' onClick={() => setShowModal(!showModal)}>RESET</button> </p>
                 </div>

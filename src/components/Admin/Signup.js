@@ -1,23 +1,20 @@
 import { browserLocalPersistence, createUserWithEmailAndPassword, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import { doc, setDoc, Timestamp } from 'firebase/firestore'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { FaGoogle } from 'react-icons/fa'
 import { toast } from 'react-toastify'
-import { useAuth } from '../context/AuthContext'
-import { auth, database, googleProvider } from '../firebaseConfig'
+import { useAuth } from '../../context/AuthContext'
+import { auth, database, googleProvider } from '../../firebaseConfig'
 
 export const Signup = () => {
-    // useEffect(() => {
-    //     onAuthStateChanged(auth, data => {
-    //         data && navigate('/post')
-    //     })
-    // }, [])
-    const {loading, setLoading, error, setError, navigate} = useAuth();
+    
+    const {loading, postsRef, userRef, setLoading, error, setError, navigate, setUser, user} = useAuth();
 
     const [showModal, setShowModal] = useState(false)
-    const [user, setUser] = useState({
-        username: "",
+    const [data, setData] = useState({
+        displayName: "",
         email: "",
         password: "",
         photo: ""
@@ -28,21 +25,26 @@ export const Signup = () => {
         e.preventDefault()
         const {name, value} = e.target
         
-        setUser(prevData => ({
+        setData(prevData => ({
             ...prevData,
             [name]: value
         }))
-        console.log(user)
+        console.log(data)
     }
 
     const signup = async (e) => {
         e.preventDefault()
-        setLoading(true)
+        setLoading(false)
         try{
-          await createUserWithEmailAndPassword(auth, user.email, user.password)
+          await createUserWithEmailAndPassword(auth, data.email, data.password)
           .then(res => {
+            setUser({
+              email: data.email,
+              name: data.displayName,
+            })
+            setDoc(doc(userRef, data.email), data)
             toast.success('Signed Up successfully!')
-            navigate('./create')
+            return navigate('./addname')
           })
         }
         catch(err){
@@ -53,31 +55,39 @@ export const Signup = () => {
                 toast.error('Too many trials! You will have to reset your password to access this site!')
                 setError('Too many trials! You will have to reset your password to access this site!')
               }else if(err.code === 'auth/user-not-found'){
+              }else if(err.code === 'auth/email-already-in-use'){
+                toast.error('Email already in use!')
+                setError('Email already in use')
+              }else if(err.code === 'auth/user-not-found'){
                 toast.error('User not found!')
                 setError('User not found!')
               }else if(err.code === 'auth/network-request-failed'){
                 setError('Sorry...! Something went wrong. Check your internet connection')
               }
               else{
+                setLoading(false)
                 console.log(err.message)
-                toast.error('Retry...')
-            }
+              }
+          }
         }
-        setLoading(false)
-      }
 
     //   login with gmail
     const loginWithGmail = async (e) => {
         e.preventDefault()
-        setLoading(true)
         try{
             await signInWithPopup(auth, googleProvider)
             .then(response => {
                 setUser({
                     email: response.email,
-                    photo: response.photoURL
+                    photo: response.photoURL,
+                    name: response.displayName
                 })
-                return navigate('./')
+                setDoc(doc(userRef, data.email), {
+                  email: response.email,
+                  photo: response.photoURL,
+                  name: response.displayName
+                })
+                return navigate('./dashboard')
             })
         }
         catch(err){
@@ -92,7 +102,6 @@ export const Signup = () => {
         }
     }
 
-    console.log(user)
 
   return (
     <div className='container'>
@@ -105,16 +114,16 @@ export const Signup = () => {
                 <br />
                 <input 
                 type="text" 
-                name="username"
-                value={user.username}
-                placeholder="Username"
+                name="displayName"
+                value={data.displayName}
+                placeholder="Name of Author/Writer"
                 onChange={handleChange}
                 />
 
                 <input 
                 type="email" 
                 name="email"
-                value={user.email}
+                value={data.email}
                 placeholder="Email Address"
                 onChange={handleChange}
                 />
@@ -123,7 +132,7 @@ export const Signup = () => {
                 type="password" 
                 name="password"
                 placeholder="Password"
-                value={user.password}
+                value={data.password}
                 onChange={handleChange}
                 />
 
