@@ -261,6 +261,7 @@ nav .nav--container ul {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   transition: all 1s ease-in-out;
   transition-duration: 500;
   transition-delay: 300;
@@ -741,21 +742,14 @@ section .section--contents .blog--card h2 {
   width: 80%;
   margin: auto;
 }
+#blogPost .container--item .title h3:first-of-type {
+  text-transform: uppercase;
+}
 #blogPost .container--item .title h3 {
   color: #f7b510;
 }
 #blogPost .container--item .title h2 {
   font-size: 3rem;
-}
-#blogPost .container--item .title .share--buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  justify-content: center;
-  align-items: center;
-}
-#blogPost .container--item .title .share--buttons h3 {
-  font-size: 2rem;
 }
 @media only screen and (max-width: 1250px) {
   #blogPost .container--item .title {
@@ -765,7 +759,21 @@ section .section--contents .blog--card h2 {
     font-size: 1.5rem;
   }
 }
+#blogPost .container--item .share--buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+#blogPost .container--item .share--buttons h3 {
+  font-size: 2rem;
+  color: #f7b510;
+}
 #blogPost .container--item > p {
+  width: 85%;
+  margin: auto;
   line-height: 1.5;
   padding: 1.5rem;
 }
@@ -797,6 +805,7 @@ section .section--contents .blog--card h2 {
 }
 #blogPost .container--item .more span {
   color: #f7b510;
+  text-transform: uppercase;
 }
 #blogPost .container--item .more .posts {
   width: 100%;

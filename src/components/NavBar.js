@@ -12,35 +12,15 @@ import { auth } from '../firebaseConfig'
 
 export const NavBar = () => {
 
-    const { logOut, user } = useAuth()
-    const { userInfo } = useData()
+    const { logOut, isLogged } = useAuth()
 
-    const toggleNav = () => {
-        const showNav = document.getElementById('showNav')
-        const closeNav = document.getElementById('closeNav')
-        const menu = document.getElementById('menu');
-
-        if(menu.style.display !== "flex"){
-            menu.style.display = "flex"
-            showNav.style.display = "none"
-            closeNav.style.display = "block"
-        }else{
-            menu.style.display = "none"
-            showNav.style.display = "block"
-            closeNav.style.display = "none"
-        }
-    }
-
+    
     const [showMenu, setShowMenu] = useState(false)
 
     const myStyle = {
         backgroundColor: "black",
     }
 
-    const toggleMode = () => {
-        const body = document.getElementById('root')
-        body.classList.add(myStyle)
-    }
 
   return (
     <nav>
@@ -81,7 +61,7 @@ export const NavBar = () => {
                 <li><Link to="/"><FaVideo /> Videos - Watch on T-Binge!</Link></li>
                 <br />
                 {/* <li>{auth.currentUser}</li> */}
-                <button className='btn--secondary' onClick={logOut}>Sign Out</button>
+                {isLogged ? <button className='btn--secondary' onClick={logOut}>Sign Out</button> : ""}
             </ul>
             }
             <div id='icons'>

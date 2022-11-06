@@ -8,9 +8,11 @@ import { auth, database, storage } from '../../firebaseConfig';
 import { addDoc, collection, doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { useAuth } from '../../context/AuthContext';
 import { PuffLoader, BarLoader } from 'react-spinners';
+import { useData } from '../../context/DataContext';
 
 export const CreatePost = ({ placeholder }) => {
 	const {loading, setLoading} = useAuth()
+	const { userInfo } = useData()
 	
 	
 	const editor = useRef(null);
@@ -53,13 +55,7 @@ export const CreatePost = ({ placeholder }) => {
 		setImage(upload[0])
 	}
 
-	// handle POST DETAILS: Data from states
-	// const postDetail = {
-	// 	title: data.title,
-	// 	category: data.category,
-	// 	content: content,
-	// 	image: image.name
-	// }
+	
 
 	// DATE: creating date format Day/Month
     // get timestamp from Firebase
@@ -119,7 +115,7 @@ export const CreatePost = ({ placeholder }) => {
 					title: data.title,
 					category: data.category,
 					content: content,
-					author: "Imam Dahir Dan-Azumi",
+					author: userInfo.displayName,
 					publishDate: date,
 					id: `${datePlain}${data.title.toLowerCase()}`
 				})

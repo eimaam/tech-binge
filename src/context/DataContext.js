@@ -27,6 +27,7 @@ export const DataProvider = ({ children }) => {
             console.log(err)
         }
     }
+console.log(userInfo)
     
     useEffect(() => {
       fetchUserDetail()

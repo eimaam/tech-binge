@@ -50,6 +50,7 @@ nav{
     ul{
         width: 65%;
         @include flex-row;
+        justify-content: flex-start;
         transition: all 1s ease-in-out;
         transition-duration: 500;
         transition-delay: 300;

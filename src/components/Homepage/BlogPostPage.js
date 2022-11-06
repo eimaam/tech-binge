@@ -13,8 +13,7 @@ import { collection, getDoc, onSnapshot, query, where } from 'firebase/firestore
 import { database } from '../../firebaseConfig'
 
 export const BlogPostPage = (props) => {
-  // const {loading, setLoading} = useAuth()
-  const [loading, setLoading] = useState(false)
+  const {loading, setLoading} = useAuth()
 
   let { title } = useParams()
 
@@ -23,10 +22,14 @@ export const BlogPostPage = (props) => {
   
   
   useEffect(() => {
+    setLoading(true)
     fetchPost()
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
   }, [])
 
-// function to fetch header Posts
+// function to fetch post from database using url as id Posts
   const fetchPost = async () => {
     try{
       const q = query(collection(database, "posts"), where("id", "==", `${title}`))
@@ -41,7 +44,9 @@ export const BlogPostPage = (props) => {
       console.log(error)
     }
   };
-console.log(blogContent)
+
+  // const url = window.location.href
+  // console.log(url.replaceAll(" ", "%20"))
   
   return (
     <div className='container' id='blogPost'>
@@ -56,21 +61,25 @@ console.log(blogContent)
         <div className='container--item'>
         {blogContent.length !== 0 ? <img src={blogContent[0].imageURL} alt="dummy" className='post--image'/> : "loading image..."}
         <div className='title'>
-          <h3>{blogContent.length !== 0 && `Category: ${blogContent[0].category}` }</h3>
-          <p>Published: {blogContent.length !== 0 && blogContent[0].publishDate} by {blogContent.length !== 0 && blogContent[0].author}</p>
+          {/* category */}
+          <h3>{blogContent.length !== 0 && blogContent[0].category }</h3>
+          <p>Published: {blogContent.length !== 0 && blogContent[0].publishDate}</p>
+          <h3>By {blogContent.length !== 0 && blogContent[0].author}</h3>
           <h2>{blogContent.length !== 0 && blogContent[0].title}</h2>
-          <div className='share--buttons'>
-            <h3><a href="/" target="_blank"><FaTwitterSquare /></a></h3>
-            <h3><a href="/" target="_blank"><FaWhatsappSquare /></a></h3>
-            <h3><a href="/" target="_blank"><FaFacebookSquare /></a></h3>
-            <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
-          </div>
         </div>
+        <div className='share--buttons'>
+          <h3><a href={`https://twitter.com/intent/tweet?text=`} target="_blank"><FaTwitterSquare /></a></h3>
+          <h3><a href="/" target="_blank"><FaWhatsappSquare /></a></h3>
+          <h3><a href="/" target="_blank"><FaFacebookSquare /></a></h3>
+          <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
+        </div>
+
         {/* setting dangerouslySetInnerHTML to recognize 
         html tags from Jodit Editor used for updating  */}
         <p dangerouslySetInnerHTML={{__html: blogContent.length !== 0 ? blogContent[0].content : ""} } />
+
         <div className='flex'>
-            <p>Share this story:</p>
+            <p>Share Article:</p>
             <h3><a href="/" target="_blank"><FaTwitterSquare /></a></h3>
             <h3><a href="/" target="_blank"><FaWhatsappSquare /></a></h3>
             <h3><a href="/" target="_blank"><FaFacebookSquare /></a></h3>

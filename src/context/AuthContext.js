@@ -22,6 +22,7 @@ export default function AuthProvider({ children }){
     const navigate = useNavigate();
     
     const [user, setUser] = useState({})
+    const [isLogged, setIsLogged] = useState(false)
 
     // const storageRef = ref(storage, `/images/${image.name}`)
     const postRef = collection(database, "posts");
@@ -54,6 +55,7 @@ export default function AuthProvider({ children }){
     setLoading(true)
     onAuthStateChanged(auth, async data => {
       if(data){
+        setIsLogged(true)
         try{
           const document = await getDoc(doc(userRef, data.email))
           if(!document.exists()){
@@ -79,6 +81,7 @@ export default function AuthProvider({ children }){
 
     
     const logOut = async () => {
+      setIsLogged(false)
       setLoading(true)
       setUser(null)
       try{
@@ -112,6 +115,8 @@ export default function AuthProvider({ children }){
       postRef,
       user,
       setUser,
+      isLogged,
+      setIsLogged
     }
 
   return (

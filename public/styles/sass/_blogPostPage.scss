@@ -30,20 +30,16 @@
             width: 80%;
             margin: auto;
 
+            h3:first-of-type{
+                text-transform: uppercase;
+            }
+
             h3{
                 color: $secondary;
             }
 
             h2{
                 font-size: 3rem;
-            }
-
-            .share--buttons{
-                @include flex-row;
-
-                h3{
-                    font-size: 2rem;
-                }
             }
 
             @include mobile{
@@ -55,7 +51,19 @@
             }
         }
 
+        .share--buttons{
+            @include flex-row;
+            margin: auto;
+
+            h3{
+                font-size: 2rem;
+                color: $secondary;
+            }
+        }
+
         & > p{
+            width: 85%;
+            margin: auto;
             line-height: 1.5;
             padding: $m-pad;
             
@@ -75,6 +83,7 @@
             }
         }
 
+
         // bottom share button{
             .flex{
                 align-items: center;
@@ -91,6 +100,7 @@
         .more{
             span{
                 color: $secondary;
+                text-transform: uppercase;
             }
             .posts{
                 width: 100%;

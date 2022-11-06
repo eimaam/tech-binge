@@ -11,20 +11,19 @@ import { PuffLoader } from 'react-spinners'
 export const AddDisplayName = () => {
 
   
-  const { loading, setLoading, user, navigate, userRef } = useAuth()
+  const { isLogged, loading, setLoading, user, navigate, userRef } = useAuth()
   const { userInfo, fetchUserDetail } = useData()
 
   useEffect(() => {
     setLoading(true)
     onAuthStateChanged(auth, data => {
-      if(data && userInfo.displayName !== undefined){
+      if(isLogged && userInfo.displayName != undefined){
         setLoading(false)
         return navigate('/dashboard')
-      }else{
-        setLoading(false)
       }
-    })  
-  }, [userInfo])
+    })
+    setLoading(false)
+  }, [userInfo, loading, isLogged])
 
   console.log(userInfo.displayName)
   

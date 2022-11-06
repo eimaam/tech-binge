@@ -17,7 +17,7 @@ export const Signup = () => {
         displayName: "",
         email: "",
         password: "",
-        photo: ""
+        photoURL: ""
     })
 
     // handle form changes
@@ -40,9 +40,13 @@ export const Signup = () => {
           .then(res => {
             setUser({
               email: data.email,
-              name: data.displayName,
+              displayName: data.displayName,
             })
-            setDoc(doc(userRef, data.email), data)
+            setDoc(doc(userRef, data.email), {
+              email: data.email,
+              displayName: data.displayName,
+              photo: data.photoURL,
+            })
             toast.success('Signed Up successfully!')
             return navigate('./addname')
           })
@@ -80,12 +84,13 @@ export const Signup = () => {
                 setUser({
                     email: response.email,
                     photo: response.photoURL,
-                    name: response.displayName
+                    displayName: response.displayName
                 })
                 setDoc(doc(userRef, data.email), {
                   email: response.email,
                   photo: response.photoURL,
-                  name: response.displayName
+                  displayName: response.displayName,
+                  created: Timestamp.toDate()
                 })
                 return navigate('./dashboard')
             })
