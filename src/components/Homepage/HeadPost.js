@@ -9,6 +9,7 @@ import { BlogCard } from './BlogCard'
 import { PuffLoader } from "react-spinners"
 
 export const HeadPost = () => {
+  
   const { loading, setLoading, fetchAllPost, allPosts } = useAuth()
   
   return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaAlignRight, FaAngleRight, FaArrowAltCircleDown, FaBusinessTime, FaChevronRight, FaCode, FaLongArrowAltRight, FaMoneyBill, FaMoneyBillAlt, FaPeopleArrows, FaRegKissWinkHeart } from 'react-icons/fa'
 import { BlogCard } from './BlogCard'
 import { NavBar } from '../NavBar'
@@ -9,15 +9,24 @@ import { useAuth } from '../../context/AuthContext'
 import { WatchVideos } from './WatchVideos'
 import { LatestStories } from './LatestStories'
 
+// AOS import
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+
 export const Homepage = () => {
+  useEffect(() => {
+    AOS.init({delay: 700, duration: 700, easing: 'ease-out'})
+  }, [])
+
   const { allPosts } = useAuth();
   return (
     <div className='container' id='homepage'>
       <NavBar />
-        <div className='container--item'>
-          <HeadPost />
+        <div className='container--item' data-aos="fade-down">
+          <HeadPost data-aos="fade-down"/>
           <hr />
-          <LatestStories />
+          <LatestStories data-aos="fade-up"/>
           <hr />
           <Section />
           <hr />

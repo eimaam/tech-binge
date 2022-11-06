@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaArrowRight, FaLongArrowAltRight } from 'react-icons/fa'
 import { useAuth } from '../../context/AuthContext'
 import { BlogCard } from './BlogCard'
 import { PuffLoader } from "react-spinners"
+
+// AOS import
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
 
 export const CategoryCard = ({
   sectionTitle,
@@ -13,9 +18,13 @@ export const CategoryCard = ({
   }
   ) => {
 
+    useEffect(() => {
+      AOS.init({delay: 600, duration: 600, easing: 'ease-out'})
+    }, [])
+
     const { allPosts } = useAuth()
   return (
-    <div className='category--card'>
+    <div className='category--card' data-aos="fade-up">
       {allPosts.length === 0 
       ? <div className='loader'>
           <PuffLoader /> 

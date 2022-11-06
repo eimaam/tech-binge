@@ -5,6 +5,7 @@ nav{
     background-color: $primary;
     padding: $s-pad $s-pad;
     border-bottom: 1px solid $dark;
+    z-index: 100000;
     
     .nav--container{
         @include flex-row;

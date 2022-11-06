@@ -219,6 +219,7 @@ nav {
   background-color: #116783;
   padding: 1rem 1rem;
   border-bottom: 1px solid rgb(24, 23, 23);
+  z-index: 100000;
 }
 nav .nav--container {
   display: flex;
