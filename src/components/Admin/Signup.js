@@ -86,16 +86,10 @@ export const Signup = () => {
                     photo: response.photoURL,
                     displayName: response.displayName
                 })
-                setDoc(doc(userRef, data.email), {
-                  email: response.email,
-                  photo: response.photoURL,
-                  displayName: response.displayName,
-                  created: Timestamp.toDate()
-                })
-                return navigate('./dashboard')
-            })
-        }
-        catch(err){
+              })
+            return navigate('./dashboard')
+          }
+          catch(err){
             if(err.code === 'auth/popup-blocked'){
                 toast.error('Pop-up blocked by browser!')
             }else if(err.code === 'auth/internal-error'){

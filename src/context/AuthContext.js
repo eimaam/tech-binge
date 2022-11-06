@@ -61,7 +61,7 @@ export default function AuthProvider({ children }){
           if(!document.exists()){
             await setDoc(doc(userRef, data.email), {
               email: data.email,
-              name: data.displayName,
+              displayName: data.displayName,
               photo: data.photoURL
             })
           }
