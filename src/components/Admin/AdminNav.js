@@ -10,7 +10,7 @@ export const AdminNav = () => {
   return (
     <div className='admin--nav'>
         <h2>Admin Dashboard</h2>
-        <h3>:: {userInfo.displayName} ::</h3>
+        <h3>::{userInfo.displayName} ::</h3>
         <ul>
             <li><Link to="/dashboard">Check Site Stats</Link></li>
             <li><Link to="/create">Create Post</Link></li>

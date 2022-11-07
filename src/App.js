@@ -51,7 +51,7 @@ function App() {
           <Route path="/addname" element={<AddDisplayName />} />
           </Route>
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </DataProvider> 
     </AuthProvider>
     }
