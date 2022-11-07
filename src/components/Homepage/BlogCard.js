@@ -4,9 +4,9 @@ import { Link, useParams } from 'react-router-dom'
 import dummy from "../../assets/dummy1.jpg"
 
 export const BlogCard = ({category, title, author, publishedDate, content, id, image}) => {
+  // change the url to string to allow passing as plain non-encoded string
   const url = decodeURI(id)
 
-  console.log(url)
   return (
     <div className='blog--card'>
       <img src={image} alt="" />
@@ -20,3 +20,4 @@ export const BlogCard = ({category, title, author, publishedDate, content, id, i
     </div>
   )
 }
+

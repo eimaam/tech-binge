@@ -125,7 +125,7 @@ console.log(imageURL)
 					content: content,
 					author: userInfo.displayName,
 					publishDate: date,
-					id: encodeURIComponent(`${datePlain}${data.title.toLowerCase()}`)
+					id: encodeURI(`${datePlain}${data.title.toLowerCase()}`)
 				})
 				toast.success('New Blog Added')
 				setLoading(false)

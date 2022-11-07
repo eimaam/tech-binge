@@ -788,10 +788,14 @@ section .section--contents .blog--card h3 {
   color: #f7b510;
 }
 #blogPost .container--item > p {
-  width: 85%;
+  width: 90%;
   margin: auto;
   line-height: 1.5;
   padding: 1.5rem;
+}
+#blogPost .container--item > p img {
+  width: auto;
+  height: auto;
 }
 #blogPost .container--item > p::first-letter {
   color: #f7b510;

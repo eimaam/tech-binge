@@ -57,8 +57,8 @@ export const BlogPostPage = (props) => {
       <NavBar />
       {loading 
       ? 
-      <div>
-        <p>Loading Article...</p>
+      <div className='flex-col'>
+        <i>Loading Article...</i>
         <p><PuffLoader /></p>
       </div> 
         : 
