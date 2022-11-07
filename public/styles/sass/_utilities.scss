@@ -58,6 +58,7 @@ button, input[type="submit"]{
 
     &:hover{
         background-color: $extras;
+        color: $dark;
     }
 
     @include mobile{

@@ -5,6 +5,11 @@
     justify-content: flex-start;
     align-items: flex-start;
     text-transform: capitalize;
+    transition: all 300ms;
+
+    &:hover{
+        transform: scale(1.02);
+    }
 
     @include mobile{
         padding: $xs-pad;

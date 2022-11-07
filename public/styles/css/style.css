@@ -59,6 +59,7 @@ button, .btn--secondary, input[type=submit] {
 }
 button:hover, .btn--secondary:hover, input[type=submit]:hover {
   background-color: #6fdcfe;
+  color: rgb(24, 23, 23);
 }
 @media only screen and (max-width: 1250px) {
   button, .btn--secondary, input[type=submit] {
@@ -169,6 +170,10 @@ hr {
   justify-content: flex-start;
   align-items: flex-start;
   text-transform: capitalize;
+  transition: all 300ms;
+}
+.blog--card:hover, .head--posts aside .blog--card:hover {
+  transform: scale(1.02);
 }
 @media only screen and (max-width: 1250px) {
   .blog--card, .head--posts aside .blog--card {
