@@ -28,6 +28,7 @@ export const HeadPost = () => {
             author={allPosts[0].author}
             publishedDate={allPosts[0].publishDate}
             content={allPosts[0].content}
+            category={allPosts[0].category}
           />
       </div>
       <aside>
@@ -41,6 +42,7 @@ export const HeadPost = () => {
               author={item.author}
               publishedDate={item.publishDate}
               content={item.content}
+              category={item.category}
             />
           )
         })}

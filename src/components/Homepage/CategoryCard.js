@@ -39,6 +39,7 @@ export const CategoryCard = ({
             title={posts[start].title}
             // author={posts[start].author}
             content={posts[start].content}
+            category={posts[start].category}
         />
       </main>
       <div className='posts'>
@@ -50,6 +51,8 @@ export const CategoryCard = ({
             title={item.title}
             author={item.author}
             content={item.content}
+            category={posts[start].category}
+
           />
         ))}
       </div>

@@ -20,10 +20,12 @@ export const BlogPostPage = (props) => {
   // state to save fetched blogContent from url
   const [blogContent, setBlogContent] = useState([])
   
-  
   useEffect(() => {
     setLoading(true)
     fetchPost()
+    if(blogContent.length !== 0){
+      document.title = blogContent[0].title
+    }
     setTimeout(() => {
       setLoading(false)
     }, 2000);
@@ -59,7 +61,6 @@ export const BlogPostPage = (props) => {
       </div> 
         : 
         <div className='container--item'>
-        {blogContent.length !== 0 ? <img src={blogContent[0].imageURL} alt="dummy" className='post--image'/> : "loading image..."}
         <div className='title'>
           {/* category */}
           <h3>{blogContent.length !== 0 && blogContent[0].category }</h3>
@@ -73,6 +74,11 @@ export const BlogPostPage = (props) => {
           <h3><a href="/" target="_blank"><FaFacebookSquare /></a></h3>
           <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
         </div>
+        {blogContent.length !== 0 
+        ? 
+        <img src={blogContent[0].imageURL} alt="dummy" className='post--image'/> 
+        : "loading image..."
+        }
 
         {/* setting dangerouslySetInnerHTML to recognize 
         html tags from Jodit Editor used for updating  */}

@@ -183,6 +183,14 @@ hr {
 .blog--card h3, .head--posts aside .blog--card h3 {
   font-size: 1rem;
   color: #f7b510;
+  background-color: #116783;
+  border-radius: 0.5rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding-inline: 0.3rem;
+  color: rgb(248, 242, 242);
+  margin-block: 0.3rem;
 }
 .blog--card p, .head--posts aside .blog--card p {
   font-size: 1.05rem;
@@ -715,23 +723,25 @@ section .section--contents .blog--card h2 {
   align-items: flex-start;
   justify-content: flex-start;
   width: 60%;
+  margin-top: 2rem;
 }
 @media only screen and (max-width: 1250px) {
   #blogPost .container--item {
     width: 95%;
     margin: auto;
+    margin-top: 4rem;
   }
 }
 @media only screen and (min-width: 1250px) and (max-width: 1400px) {
   #blogPost .container--item {
     width: 90%;
     margin: auto;
+    margin-top: 3rem;
   }
 }
 #blogPost .container--item .post--image {
   width: 60%;
   height: 300px;
-  margin-top: 3rem;
 }
 @media only screen and (max-width: 1250px) {
   #blogPost .container--item .post--image {

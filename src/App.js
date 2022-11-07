@@ -26,7 +26,7 @@ function App() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 2500);
+    }, 0);
   }, [])
 
   return (
@@ -55,7 +55,7 @@ function App() {
     </AuthProvider>
     }
     <ToastContainer
-          autoClose={3000}
+        autoClose={3000}
     />
     </div>
   );

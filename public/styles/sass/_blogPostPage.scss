@@ -5,20 +5,22 @@
         align-items: flex-start;
         justify-content: flex-start;
         width: 60%;
+        margin-top: 2rem;
+
 
         @include mobile{
             @include m-width;
+            margin-top: 4rem;
         }
 
         @include tablet{
             @include tablet-width;
+            margin-top: 3rem;
         }
 
         .post--image{
             width: 60%;
             height: 300px;
-            margin-top: 3rem;
-
 
             @include mobile{
                 width: 90%;

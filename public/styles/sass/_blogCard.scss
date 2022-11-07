@@ -18,6 +18,12 @@
     h3{
         font-size: 1rem;
         color: $secondary;
+        background-color: $primary;
+        border-radius: $m-border-radius;
+        width: max-content;
+        padding-inline: 0.3rem;
+        color: $default;
+        margin-block: 0.3rem;
     }
 
     p{
