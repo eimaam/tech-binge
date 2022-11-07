@@ -20,7 +20,8 @@ export const CreatePost = ({ placeholder }) => {
 	const [data, setData] = useState({
 		title: "",
 		category: "",
-		tag: ""
+		caption: "",
+		imageURL: ""
 	})
 
 	const [image, setImage] = useState("")
@@ -47,6 +48,7 @@ export const CreatePost = ({ placeholder }) => {
 			...prevData,
 			[name]: value
 		}))
+		console.log(data)
 	}
 
 	// function to handle image selection 
@@ -54,6 +56,9 @@ export const CreatePost = ({ placeholder }) => {
 		let upload = e.target.files
 		setImage(upload[0])
 	}
+
+	console.log(image)
+console.log(imageURL)
 
 	
 
@@ -83,6 +88,7 @@ export const CreatePost = ({ placeholder }) => {
 		e.preventDefault()
 		if(!image){
 			toast.error('Image is empty!')
+			return setUploadProgress(100)
 		}
 		const uploadTask = uploadBytesResumable(storageRef, image)
 		uploadTask.on("state_changed", (snapshot) => {
@@ -102,6 +108,7 @@ export const CreatePost = ({ placeholder }) => {
 	);
 	}
 
+	
 
 	// CREATE Post function
 	const addPost = async (e) => {
@@ -111,13 +118,14 @@ export const CreatePost = ({ placeholder }) => {
 		try{
 			if(!post.exists()){
 				await setDoc(doc(postRef, data.title), {
-					imageURL: imageURL,
+					imageURL: imageURL != "" ? imageURL : data.imageURL,
+					caption: data.caption,
 					title: data.title,
 					category: data.category,
 					content: content,
 					author: userInfo.displayName,
 					publishDate: date,
-					id: `${datePlain}${data.title.toLowerCase()}`
+					id: encodeURIComponent(`${datePlain}${data.title.toLowerCase()}`)
 				})
 				toast.success('New Blog Added')
 				setLoading(false)
@@ -156,16 +164,42 @@ export const CreatePost = ({ placeholder }) => {
 						accept='.png, .jpeg, .jpg, .svg'
 						onChange={(e) => handleImage(e)}				
 						/>
+						<label htmlFor="">Add via URL:</label>
+						<input 
+						type="text"
+						name='imageURL'
+						value={data.imageURL}
+						placeholder="...you can add image URL here"
+						onChange={handleChange}				
+						/>
+						<i>Choose an option: Can only upload via one means one of form</i>
+					</div>
+					<div>
+						<label htmlFor="caption">Caption:</label>
+						<input 
+						type="text"
+						name='caption'
+						value={data.caption} 
+						placeholder="...give image a caption"
+						onChange={handleChange}				
+						/>
 					</div>
 					<div>
 						<label htmlFor="category">Category:</label>
-						<input 
-						type="text"
-						name='category'
-						value={data.category} 
-						placeholder="Technology | Business | Funding | Economy | .. "
-						onChange={handleChange}				
-						/>
+						<select name="category" defaultValue="Select Post Category" onChange={handleChange}>
+							<option defaultValue="" disabled>Select Post Category</option>
+							<option value="Cryptocurrency">Cryptocurrency</option>
+							<option value="Education">Education</option>
+							<option value="Events">Events </option>
+							<option value="Featured">Featured</option>
+							<option value="How-Tos">How-Tos</option>
+							<option value="Lifestyle & Fashion">Lifestyle & Fashion</option>
+							<option value="Technology">Technology</option>
+							<option value="Startup">Startups</option>
+							<option value="Watch">Watch - Videos</option>
+							<option value="Backend">Web Dev: Backend</option>
+							<option value="Frontend">Web Dev: Frontend</option>
+						</select>
 					</div>
 				</form>
 				<div className='jodit--editor'>
@@ -201,7 +235,7 @@ export const CreatePost = ({ placeholder }) => {
 				</div>
 				<div className='blog--image'>
 					{image 
-					? <img src={`${imageURL}`} alt={image.name} /> 
+					? <img src={`${imageURL != "" ? imageURL : data.imageURL}`} alt={image.name} /> 
 					: <i>Blog Post image appears here...</i>
 					}
 				</div>

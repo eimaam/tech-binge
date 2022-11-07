@@ -31,6 +31,7 @@ export const LatestStories = () => {
             author={allPosts[4].author}
             publishedDate={allPosts[4].publishDate}
             content={allPosts[4].content}
+            category={allPosts[4].category}
         />
       </main>
       <div className='posts'>
@@ -43,6 +44,7 @@ export const LatestStories = () => {
             author={item.author}
             publishedDate={item.publishDate}
             content={item.content}
+            category={item.category}
           />
         ))}
       </div>

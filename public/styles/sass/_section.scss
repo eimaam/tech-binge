@@ -27,6 +27,10 @@ section{
                 color: white;
             }
 
+            h3{
+                background-color: $dark;
+            }
+
             @include mobile{
                 width: 210px;
             }

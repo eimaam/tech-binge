@@ -30,6 +30,7 @@ export const Section = () => {
             image={item.imageURL}
             title={item.title}
             content={item.content}
+            category={item.category}
           />
           ))}
       </div>

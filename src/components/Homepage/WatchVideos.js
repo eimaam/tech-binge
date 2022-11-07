@@ -20,6 +20,7 @@ export const WatchVideos = () => {
             image={item.imageURL}
             title={item.title}
             content={item.content}
+            category={item.category}
           />
           ))}
       </div>

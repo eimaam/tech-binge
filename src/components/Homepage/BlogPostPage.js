@@ -17,6 +17,8 @@ export const BlogPostPage = (props) => {
 
   let { title } = useParams()
 
+  const url = encodeURI(title)
+  console.log(url)
   // state to save fetched blogContent from url
   const [blogContent, setBlogContent] = useState([])
   
@@ -34,7 +36,7 @@ export const BlogPostPage = (props) => {
 // function to fetch post from database using url as id Posts
   const fetchPost = async () => {
     try{
-      const q = query(collection(database, "posts"), where("id", "==", `${title}`))
+      const q = query(collection(database, "posts"), where("id", "==", `${url}`))
       await onSnapshot(q, snapShot => {
         setBlogContent(snapShot.docs.map(data => ({
           ...data.data(),
@@ -66,7 +68,10 @@ export const BlogPostPage = (props) => {
           <h3>{blogContent.length !== 0 && blogContent[0].category }</h3>
           <p>Published: {blogContent.length !== 0 && blogContent[0].publishDate}</p>
           <h3>By {blogContent.length !== 0 && blogContent[0].author}</h3>
-          <h2>{blogContent.length !== 0 && blogContent[0].title}</h2>
+          <h2>
+            {blogContent.length !== 0 
+            && blogContent[0].title}
+          </h2>
         </div>
         <div className='share--buttons'>
           <h3><a href={`https://twitter.com/intent/tweet?text=`} target="_blank"><FaTwitterSquare /></a></h3>
@@ -74,11 +79,15 @@ export const BlogPostPage = (props) => {
           <h3><a href="/" target="_blank"><FaFacebookSquare /></a></h3>
           <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
         </div>
+        {/* image */}
         {blogContent.length !== 0 
-        ? 
+        ?
+        <>
         <img src={blogContent[0].imageURL} alt="dummy" className='post--image'/> 
+        <i style={{textAlign: "center", margin: "auto"}}>{blogContent[0].caption}</i>
+        </>
         : "loading image..."
-        }
+      }
 
         {/* setting dangerouslySetInnerHTML to recognize 
         html tags from Jodit Editor used for updating  */}

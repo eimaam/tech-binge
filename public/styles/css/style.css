@@ -155,7 +155,6 @@ hr {
   .container .container--item, .dashboard--container .container--item, .create--post .container--item {
     width: 90%;
     margin: auto;
-    border: solid cyan;
   }
 }
 
@@ -303,7 +302,7 @@ nav .nav--container .menu--list--mobile {
 }
 nav .nav--container .menu--list--mobile #closeMenu {
   position: absolute;
-  top: 2rem;
+  top: 1.5rem;
 }
 nav .nav--container .menu--list--mobile #closeMenu .close--menu--icon {
   font-size: 1.5rem;
@@ -317,6 +316,7 @@ nav .nav--container .menu--list--mobile #closeMenu .close--menu--icon {
     justify-content: center;
     align-items: center;
     align-items: flex-start;
+    justify-content: flex-start;
     gap: 0.7rem;
     width: 80%;
     min-height: 100vh;
@@ -328,6 +328,7 @@ nav .nav--container .menu--list--mobile #closeMenu .close--menu--icon {
     padding-inline: 1rem;
     z-index: 10000;
     overflow-y: scroll;
+    padding-top: 4rem;
   }
   nav .nav--container .menu--list--mobile li a {
     display: flex;
@@ -712,6 +713,9 @@ section .section--contents .blog--card h2 {
   font-size: 1.1rem;
   color: white;
 }
+section .section--contents .blog--card h3 {
+  background-color: rgb(24, 23, 23);
+}
 @media only screen and (max-width: 1250px) {
   section .section--contents .blog--card {
     width: 210px;
@@ -761,6 +765,7 @@ section .section--contents .blog--card h2 {
 }
 #blogPost .container--item .title h2 {
   font-size: 3rem;
+  text-transform: capitalize;
 }
 @media only screen and (max-width: 1250px) {
   #blogPost .container--item .title {

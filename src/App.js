@@ -26,7 +26,7 @@ function App() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 0);
+    }, 2500);
   }, [])
 
   return (
@@ -51,6 +51,7 @@ function App() {
           <Route path="/addname" element={<AddDisplayName />} />
           </Route>
         </Routes>
+        <Footer />
       </DataProvider> 
     </AuthProvider>
     }

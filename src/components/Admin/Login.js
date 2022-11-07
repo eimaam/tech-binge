@@ -79,7 +79,7 @@ export const Login = () => {
             <form action="" onSubmit={login}>
                 <div>
                     <h2>Admin Page</h2>
-                    <p>Enter your details to login</p>
+                    <p>Enter login credentials to gain access</p>
                 </div>
                 <br />
                 <input 

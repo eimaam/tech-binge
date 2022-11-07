@@ -37,7 +37,7 @@ export const CategoryCard = ({
             id={posts[start].id} 
             image={posts[start].imageURL}
             title={posts[start].title}
-            // author={posts[start].author}
+            author={posts[start].author}
             content={posts[start].content}
             category={posts[start].category}
         />
