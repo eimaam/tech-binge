@@ -72,7 +72,7 @@ export const BlogPostPage = (props) => {
         </div>
         <div className='share--buttons'>
           <h3><a href={`https://twitter.com/intent/tweet?text=https://${encodeURI(url)}`} target="_blank"><FaTwitterSquare /></a></h3>
-          <h3><a href={`whatsapp://send?text=${encodeURI(url)}`} target="_blank"><FaWhatsappSquare /></a></h3>
+          <h3><a href={`whatsapp://send?text=https://${encodeURI(url)}`} target="_blank"><FaWhatsappSquare /></a></h3>
           <h3><a href="/" target="_blank"><FaFacebookSquare /></a></h3>
           <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
         </div>
