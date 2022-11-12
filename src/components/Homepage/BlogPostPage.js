@@ -20,26 +20,29 @@ export const BlogPostPage = (props) => {
 
   const url = encodeURI(title)
 
-  console.log(loading)
   // state to save fetched blogContent from url
   const [blogContent, setBlogContent] = useState([])
   const [moreCategory, setMoreCategory] = useState([])
-  
+
   useEffect(() => {
+    setLoading(true)
     fetchPost("id", url, setBlogContent)
     if(blogContent.length !== 0){
       document.title = blogContent[0].title
     }
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
   }, [loading])
   
   useEffect(() => {
     blogContent.length !== 0 &&
     fetchPost("category", blogContent[0].category, setMoreCategory)
-  }, [loading])
+  }, [])
 
-  // console.log(moreCategory[0].title)
-
-  if(moreCategory.length === 0){
+  console.log(moreCategory)
+  
+  if(blogContent.length == 0){
     return <div className='flex-col'>
         <i>Loading Article...</i>
         <p><PuffLoader /></p>
