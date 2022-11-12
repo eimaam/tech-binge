@@ -30,9 +30,9 @@ export const BlogPostPage = (props) => {
     if(blogContent.length !== 0){
       document.title = blogContent[0].title
     }
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000);
+    // setTimeout(() => {
+    //   setLoading(false)
+    // }, 2000);
   }, [loading])
   
   useEffect(() => {
@@ -40,10 +40,17 @@ export const BlogPostPage = (props) => {
     fetchPost("category", blogContent[0].category, setMoreCategory)
   }, [blogContent])
 
-  console.log(moreCategory)
+  const loader = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "100vh",
+  }
   
   if(blogContent.length == 0){
-    return <div className='flex-col'>
+    return <div style={loader}>
         <i>Loading Article...</i>
         <p><PuffLoader /></p>
             </div> 
@@ -57,15 +64,15 @@ export const BlogPostPage = (props) => {
           {/* category */}
           <h3>{blogContent[0].category }</h3>
           <p>Published: {blogContent[0].publishDate}</p>
-          <h3>By {blogContent[0].author}</h3>
+          <h3>By: {blogContent[0].author}</h3>
           <h2>
             {blogContent.length !== 0 
             && blogContent[0].title}
           </h2>
         </div>
         <div className='share--buttons'>
-          <h3><a href={`https://twitter.com/intent/tweet?text=${url}`} target="_blank"><FaTwitterSquare /></a></h3>
-          <h3><a href="/" target="_blank"><FaWhatsappSquare /></a></h3>
+          <h3><a href={`https://twitter.com/intent/tweet?text=https://${encodeURI(url)}`} target="_blank"><FaTwitterSquare /></a></h3>
+          <h3><a href={`whatsapp://send?text=${encodeURI(url)}`} target="_blank"><FaWhatsappSquare /></a></h3>
           <h3><a href="/" target="_blank"><FaFacebookSquare /></a></h3>
           <h3><a href="/" target="_blank"><FaLinkedin /></a></h3>
         </div>
