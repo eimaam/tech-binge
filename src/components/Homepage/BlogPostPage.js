@@ -38,7 +38,7 @@ export const BlogPostPage = (props) => {
   useEffect(() => {
     blogContent.length !== 0 &&
     fetchPost("category", blogContent[0].category, setMoreCategory)
-  }, [])
+  }, [blogContent])
 
   console.log(moreCategory)
   
