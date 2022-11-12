@@ -1,7 +1,6 @@
-import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { Homepage } from "./components/Homepage/Homepage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { Dashboard } from "./components/Admin/dashboard/Dashboard";
 import { CreatePost } from "./components/Admin/CreatePost";
 import { Login } from "./components/Admin/Login";
@@ -51,7 +50,7 @@ function App() {
           <Route path="/addname" element={<AddDisplayName />} />
           </Route>
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </DataProvider> 
     </AuthProvider>
     }

@@ -12,9 +12,9 @@ export const BlogCard = ({category, title, author, publishedDate, content, id, i
       <img src={image} alt="" />
       <Link to={`/${url}`}>
         <div>
-            <h3>{category}</h3>
+            {category ? <h3>{category}</h3> : null}
             <h2>{title}</h2>
-            <p>{author ? `- ${author}` : ""} <small>{publishedDate ? `| ${publishedDate}` : ""}</small> </p>
+            <p>{author ? `- ${author}` : null} <small>{publishedDate ? `| ${publishedDate}` : ""}</small> </p>
         </div>
       </Link>
     </div>

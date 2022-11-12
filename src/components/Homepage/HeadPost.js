@@ -1,16 +1,11 @@
-import { collection, getDocs, onSnapshot, query } from 'firebase/firestore'
 import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
-import { database } from '../../firebaseConfig'
-import { fakeData } from '../FakeData'
 import { BlogCard } from './BlogCard'
 import { PuffLoader } from "react-spinners"
 
 export const HeadPost = () => {
   
-  const { loading, setLoading, fetchAllPost, allPosts } = useAuth()
+  const { allPosts } = useAuth()
   
   return (
     <div className='head--posts'>
